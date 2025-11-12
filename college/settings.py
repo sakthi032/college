@@ -28,7 +28,13 @@ SECRET_KEY='django-insecure-v-qmh4bk*x04el$qc(395n8*29(2un#vv3v8v4248exn3@!9g6'
 # SECRET_KEY = os.environ.get('SECRET_KEY', 'unsafe-secret-key')
 
 DEBUG = False
-ALLOWED_HOSTS=["*"]
+ALLOWED_HOSTS = ["*"]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://student-svpd195114.up.railway.app',
+]
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
 # Application definition
@@ -136,7 +142,7 @@ LOGIN_REDIRECT_URL = '/Dashboard/'
 SECURE_HSTS_SECONDS = 31536000  # 1 year
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SECURE_HSTS_PRELOAD = True
-SECURE_SSL_REDIRECT = True
+SECURE_SSL_REDIRECT = False
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 
