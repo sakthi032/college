@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(-45deg, #ff00ff, #ff8800, #00ffff, #ff0080);
+    background-size: 400% 400%;
+    animation: bgAnimation 8s infinite alternate;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Background Animation */
+@keyframes bgAnimation {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+/* Container */
+.con {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    padding: 20px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+    animation: float 3s infinite ease-in-out;
+}
+
+/* Floating Effect */
+@keyframes float {
+    0%, 100% { transform: translate(-50%, -50%) translateY(0px); }
+    50% { transform: translate(-50%, -50%) translateY(10px); }
+}
+
+/* Login Title */
+h1.login {
+    font-size: 42px;
+    font-weight: bolder;
+    color: #00ffff;
+    text-shadow: 0 0 10px #00ffff, 0 0 20px #00ccff;
+    animation: neonGlow 2s infinite alternate;
+}
+
+@keyframes neonGlow {
+    0% { text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff0080; }
+    100% { text-shadow: 0 0 20px #00ffff, 0 0 30px #00ccff; }
+}
+
+/* Input Fields */
+.input1, .input2 {
+    width: 85%;
+    padding: 12px;
+    margin: 10px auto;
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid transparent;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+/* Placeholder Styling */
+.input1::placeholder, .input2::placeholder {
+    color: #00ffff;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* Input Focus Effect */
+.input1:focus, .input2:focus {
+    border: 2px solid #00ffff;
+    box-shadow: 0px 0px 10px #00ffff;
+    animation: shake 0.3s;
+}
+
+/* Input Shake Animation */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+}
+
+/* Login Button */
+.login-btn {
+    width: 120px;
+    padding: 12px;
+    border: none;
+    border-radius: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #fff;
+    background: linear-gradient(90deg, #ff00ff, #ff0080, #00ffff);
+    background-size: 300% 300%;
+    box-shadow: 0px 0px 15px #ff00ff;
+    animation: buttonGlow 3s infinite, gradientMove 5s infinite;
+    transition: transform 0.2s ease;
+}
+
+/* Button Glow Animation */
+@keyframes buttonGlow {
+    0%, 100% { box-shadow: 0px 0px 15px #ff00ff; }
+    50% { box-shadow: 0px 0px 25px #00ffff; }
+}
+
+/* Gradient Move */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Button Hover */
+.login-btn:hover {
+    transform: scale(1.1) rotate(3deg);
+}
+
+/* Register Link */
+.reg {
+    margin-top: 20px;
+    font-size: 20px;
+    color: #00ffff;
+    text-decoration: none;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.reg:hover {
+    color: #ff00ff;
+    text-shadow: 0px 0px 10px #ff00ff;
+}
