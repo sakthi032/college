@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{% static 'staff/images/favicon.ico' %}">
+    <title>Student Attainment Reporting system</title>
+    <link rel="stylesheet" href="{%static 'staff/css/failed_student.css'%}">
+</head>
+<body>
+    <div class="container">
+        <h2>Search Student Marks</h2>
+        <form class="search-form" id="searchForm" method="get">
+            <div class="filters">
+                <select name="departments" class="dropdown">
+                    {% for department in dept %}
+                        <option value="{{ department.name }}" {% if selected_dept == department.name %}selected{% endif %}>{{ department.name }}</option>
+                    {% empty %}
+                        <option>No departments</option>
+                    {% endfor %}
+                </select>
+                <select name="status" class="dropdown">
+                    <option value="Fail" {% if status == "Fail" %}selected{% endif %}>Fail</option>
+                    <option value="Pass" {% if status == "Pass" %}selected{% endif %}>Pass</option>
+                    <option value="All" {% if status == "All" %}selected{% endif %}>All</option>
+                </select>
+
+                <div class="search-box">
+                    <input type="text" id="queryInput" name="query" placeholder="Enter Student Reg No..." value="{{ query }}">
+                    <button type="submit" class="btn-search"><i class="fas fa-search"></i> Search</button>
+                </div>
+            </div>
+        </form>
+
+        <div id="searchResults">
+            <div class="table-section">
+                <h3>Semester Exam Results</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>S.No</th>
+                            <th>Reg No</th>
+                            <th>Name</th>
+                            <th>Course Name</th>
+                            <th>Semester</th>
+                            <th>Theory/Practical</th>
+                            <th>Internal</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for student in students %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ student.reg_no }}</td>
+                            <td>{{ student.student_name }}</td>
+                            <td>{{ student.course_name }}</td>
+                            <td>{{ student.semester }}</td>
+                            <td>{{ student.ese }}</td>
+                            <td>{{ student.cia }}</td>
+                            <td>{{ student.total }}</td>
+                            <td class="{% if student.status == 'Fail' %}fail{% else %}pass{% endif %}">
+                                {{ student.status }}
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <tr><td colspan="9" class="empty">No Records Found</td></tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="table-section">
+                <h3>College Exam Results</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>S.No</th>
+                            <th>Reg No</th>
+                            <th>Name</th>
+                            <th>Course Name</th>
+                            <th>Semester</th>
+                            <th>Theory/Practical</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for student in college %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ student.reg_no }}</td>
+                            <td>{{ student.student_name }}</td>
+                            <td>{{ student.course_name }}</td>
+                            <td>{{ student.semester }}</td>
+                            <td>{{ student.marks }}</td>
+                            <td>{{ student.total }}</td>
+                            <td class="{% if student.status == 'Fail' %}fail{% else %}pass{% endif %}">
+                                {{ student.status }}
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <tr><td colspan="8" class="empty">No Records Found</td></tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

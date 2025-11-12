@@ -1,0 +1,84 @@
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #e0eafc, #cfdef3);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+}
+
+.container {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    width: 90%;
+    max-width: 600px;
+}
+
+.container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #003366;
+    position: relative;
+}
+
+.cursor {
+    animation: blink 1s infinite;
+    display: inline-block;
+    width: 10px;
+    height: 1.4em;
+    background-color: #003366;
+    vertical-align: bottom;
+}
+
+@keyframes blink {
+    0%, 50%, 100% {
+        opacity: 1;
+    }
+    25%, 75% {
+        opacity: 0;
+    }
+}
+
+.glitch-button {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 14px 24px;
+    background: #003366;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: transform 0.2s, background 0.3s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.glitch-button:hover {
+    background: #00509e;
+    transform: scale(1.03);
+}
+
+@media (max-width: 500px) {
+    .container {
+        padding: 25px;
+    }
+
+    .glitch-button {
+        font-size: 0.95rem;
+        padding: 12px;
+    }
+
+    .container h1 {
+        font-size: 2rem;
+    }
+}

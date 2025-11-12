@@ -1,0 +1,222 @@
+/* === GENERAL PAGE STYLING === */
+body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #2b5876, #4e4376);
+    min-height: 100vh;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 10px;
+}
+
+/* === CONTAINER === */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2);
+    padding: 40px 50px;
+    animation: fadeIn 1s ease-in-out;
+    backdrop-filter: blur(10px);
+}
+
+/* === HEADER === */
+h2 {
+    text-align: center;
+    color: #2b5876;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 35px;
+    text-transform: uppercase;
+    position: relative;
+}
+h2::after {
+    content: "";
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, #2b5876, #4e4376);
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    border-radius: 5px;
+}
+
+/* === FILTER SECTION === */
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.dropdown,
+.search-box input[type="text"] {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    outline: none;
+    background: #f8f9fb;
+}
+
+.dropdown:hover,
+.search-box input[type="text"]:focus {
+    border-color: #4e4376;
+    box-shadow: 0 0 6px rgba(78, 67, 118, 0.3);
+}
+
+/* === SEARCH BUTTON === */
+.btn-search {
+    background: linear-gradient(90deg, #2b5876, #4e4376);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-search:hover {
+    transform: scale(1.07);
+    background: linear-gradient(90deg, #4e4376, #2b5876);
+    box-shadow: 0 4px 15px rgba(78, 67, 118, 0.4);
+}
+
+/* === TABLE SECTION === */
+.table-section {
+    margin-top: 35px;
+    animation: slideUp 1s ease;
+}
+
+.table-section h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #2b5876;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    position: relative;
+}
+.table-section h3::before {
+    content: "📘";
+    margin-right: 10px;
+}
+
+/* === TABLE STYLE === */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 15px;
+    background: #fdfdfd;
+}
+
+thead {
+    background: linear-gradient(90deg, #2b5876, #4e4376);
+    color: #fff;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: center;
+    font-size: 14px;
+}
+
+th {
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+tbody tr {
+    transition: all 0.3s ease;
+    border-bottom: 1px solid #eee;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f8f9fb;
+}
+
+tbody tr:hover {
+    background-color: #eef1ff;
+    transform: scale(1.01);
+    cursor: pointer;
+}
+
+/* === STATUS STYLING === */
+.pass {
+    color: #16a34a;
+    font-weight: 700;
+}
+
+.fail {
+    color: #dc2626;
+    font-weight: 700;
+}
+
+/* === EMPTY ROW === */
+.empty {
+    text-align: center;
+    color: #999;
+    padding: 20px;
+    font-style: italic;
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 768px) {
+    .container {
+        padding: 25px 20px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    th, td {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .filters {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .search-box input[type="text"] {
+        width: 100%;
+    }
+
+    .btn-search {
+        width: 100%;
+    }
+}
+
+/* === ANIMATIONS === */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

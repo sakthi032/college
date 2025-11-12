@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{% static 'staff/images/favicon.ico' %}"
+    />
+    <title>Student Attainment Reporting system</title>
+    <link rel="stylesheet" href="{%static 'staff/css/internal_form.css'%}" />
+  </head>
+<body>
+   <div class="container">
+        <h1>INTERNAL</h1>
+
+        <div class="form-container">
+            <div class="input-group">
+                <div>
+                    <label for="programme">Programme</label>
+                    <input type="text" id="programme" placeholder="Enter Programme Name">
+                </div>
+                <div>
+                    <label for="courseName">Course Name</label>
+                    <input type="text" id="courseName" placeholder="Enter Course Name">
+                </div>
+                <div>
+                    <label for="courseCode">Course Code</label>
+                    <input type="text" id="courseCode" placeholder="Enter Course Code">
+                </div>
+                <div>
+                    <label for="academicYear">Academic Year</label>
+                    <input type="text" id="academicYear" placeholder="Enter Academic Year">
+                </div>
+                <div>
+                    <label for="semester">Semester</label>
+                    <input type="text" id="semester" placeholder="Enter Semester">
+                </div>
+                <div>
+                    <label for="totaldays">Working Days</label>
+                    <input type="number" id="totalWorkingDays" placeholder="Enter Total Working Days" oninput="updateWorkingDays()">
+                </div>
+            </div>
+            <div>
+                <label for="numStudents">Number of Students</label>
+                <input type="number" id="numStudents" placeholder="Enter number of students" min="1" oninput="generateTable()">
+
+            </div>
+                <div class="button-row">
+                    <!-- <button onclick="generateTable()">Create List</button> -->
+
+                    <label for="uploadExcel">📂 Upload Excel File</label>
+                    <input type="file" id="uploadExcel" accept=".xlsx, .xls" onchange="handleFile()">
+                </div>
+        </div>
+
+        <div class="table-container">
+            <table id="studentsTable">
+                <thead>
+                    <tr>
+                        <th>Reg. No</th>
+                        <th>Student Name</th>
+                        <th>Days Present</th>
+                        <th>Working Days</th>
+                        <th>Percentage</th>
+                        <th>Marks (5)</th>
+                        <th>Assignment (5)</th>
+                        <th>Seminar (5)</th>
+                        <th>| Internal (50)</th>
+                        <th>|| Internal (50)</th>
+                        <th>Model Exam (75)</th>
+                        <th>Total (10)</th>
+                        <th>Overall Total (25)</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <button onclick="submitData()">Submit Data</button>
+    </div>
+   <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<script src="{%static 'staff/js/internal_form.js'%}"></script>
+
+</body>
+</html>

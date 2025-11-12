@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{% static 'staff/images/favicon.ico' %}">
+    <title>Student Attainment Reporting system</title>
+    <link rel="stylesheet" href="{% static 'staff/css/loginstyle.css' %}">
+</head>
+<body>
+  {% if messages %}
+    {% for message in messages %}
+      <script>
+        alert("{{ message|safe }}");
+      </script>
+    {% endfor %}
+  {% endif %}
+
+    <div class="con">
+        <h1 class="login">Login</h1>
+        <form id="loginForm" method="post">
+            {%csrf_token%}
+            <input type="text" name="username" class="input1" placeholder="Enter Username (or) Email" required>
+            <input type="password" name="password" class="input2" placeholder="Enter Password" required>
+            <button type="submit" class="login-btn">Login</button>
+            <a class="reg" href="{% url 'register' %}">Register here</a>
+    </form>
+    </div>
+</body>
+</html>

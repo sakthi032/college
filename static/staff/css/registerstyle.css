@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    background: black;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.con {
+    width: 600px;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    background: rgba(10, 10, 10, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 0 20px #00ffcc;
+    border: 2px solid #00ffcc;
+    animation: neonGlow 1.5s infinite alternate;
+}
+.login {
+    font-size: 32px;
+    color: #00ffcc;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 0px 0px 10px #00ffcc, 0px 0px 20px #ff00ff;
+    animation: glitch 1s infinite;
+}
+form{
+    display:flex;
+    flex-direction:column;
+    gap:1rem
+}
+label{
+    color:#00ffcc;
+    align-self:center;
+}
+.clg{
+    display:flex;
+    justify-content:space-between;
+}
+
+@keyframes glitch {
+    0% { text-shadow: 2px 2px #ff00ff, -2px -2px #00ffcc; }
+    50% { text-shadow: -2px -2px #ff00ff, 2px 2px #00ffcc; }
+    100% { text-shadow: 2px 2px #ff00ff, -2px -2px #00ffcc; }
+}
+
+.clg input{
+    width: 60%;
+    padding: 12px;
+    background: black;
+    border: 2px solid #00ffcc;
+    color: #00ffcc;
+    font-size: 16px;
+    text-align: center;
+    outline: none;
+    box-shadow: 0 0 10px #00ffcc;
+    transition: 0.3s;
+}
+
+input:hover {
+    box-shadow: 0 0 20px #ff00ff;
+    border-color: #ff00ff;
+    transform: scale(1.05);
+}
+
+.reg-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(45deg, #ff00ff, #00ffcc);
+    border: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: 0.4s;
+    box-shadow: 0 0 10px #ff00ff;
+    animation: shake 2s infinite alternate;
+}
+
+@keyframes shake {
+    0% { transform: translateX(-2px); }
+    50% { transform: translateX(2px); }
+    100% { transform: translateX(-2px); }
+}
+
+.reg-btn:hover {
+    background: linear-gradient(45deg, #00ffcc, #ff00ff);
+    box-shadow: 0 0 20px #00ffcc;
+    transform: scale(1.1) rotate(2deg);
+}
+.reg {
+    display: block;
+    color: #00ffcc;
+    font-size: 14px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.reg:hover {
+    text-shadow: 0px 0px 10px #ff00ff, 0px 0px 20px #00ffcc;
+    transform: scale(1.1);
+}
+
+@keyframes neonGlow {
+    0% { box-shadow: 0 0 10px #00ffcc; }
+    100% { box-shadow: 0 0 20px #ff00ff; }
+}

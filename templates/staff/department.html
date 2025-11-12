@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{% static 'staff/images/favicon.ico' %}">
+    <title>Student Attainment Reporting system</title>
+    <link rel="stylesheet" href="{%static 'staff/css/department.css'%}">
+</head>
+<body>
+<!-- Modal Background -->
+<div id="passwordModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2>Change Password</h2>
+    <form method="post" action="{% url 'password_change' %}">
+        {% csrf_token %}
+        <label for="old_password">Current Password</label>
+        <input class="change_pass" type="password" name="old_password" placeholder="Enter current password" required>
+
+        <label for="new_password1">New Password</label>
+        <input class="change_pass" type="password" name="new_password1" placeholder="Enter new password" required>
+
+        <label for="new_password2">Confirm New Password</label>
+        <input class="change_pass" type="password" name="new_password2" placeholder="Re-enter new password" required>
+
+        <button type="submit" class="btn-submit"  onclick="return confirm('Are You Sure Want To Change Password?');">Update Password</button>
+    </form>
+  </div>
+</div>
+
+
+    <header>
+        <h1>{{dept}} Department</h1>
+    </header>
+<aside>
+    <a href="{%url 'theory_form'%}">Theory & Practical</a>
+    <a href="{%url 'internal_form'%}">Internal</a>
+    <a href="{% url 'college_exam'%}">College Exam</a>
+    <a href="{% url 'view_merge_file' %}">View Merge Files</a>
+    <a href="{% url 'dept_failed_students' %}">Failed Students List</a>
+    <a href="javascript:void(0);" onclick="openModal()" >Change Password</a>
+            <a href="{% url 'logout' %}"
+           onclick="return confirm('Are you sure you want to logout?')"
+           class="logout-btn">Logout</a>
+</aside>
+<section>
+    <div class="con">
+        <form class="search" method="post">
+            {%csrf_token%}
+            <input type="text" name="search" placeholder="Search The Excel File" value="{{value}}">
+        <select id="file-category" name="department" >
+    <option value="theory" {% if category == "theory" %}selected{% endif %}>Theory</option>
+    <option value="internal" {% if category == "internal" %}selected{% endif %}>Internal</option>
+    <option value="college_exam" {% if category == "college_exam" %}selected{% endif %}>College Exam</option>
+</select>
+            <button type="submit">Search</button>
+
+        </form>
+    <table border="1">
+        <thead>
+        <tr>
+            <th id="category" colspan="6">{{selected_category}}</th>
+        </tr>
+        <tr>
+            <th>S.NO</th>
+            <th> Course Code</th>
+            <th>Updated Date</th>
+            <th>Create Date</th>
+            <th>Send To Merge</th>
+            <th>Download</th>
+        </tr>
+        </thead>
+        <tbody>
+        {%for i in data%}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{i.course_code}}</td>
+            <td>{{i.updated_at}}</td>
+            <td>{{i.created_at}}</td>
+            <td><a href="#" onclick="sendFile('{{ i.id }}', '{{ selected_category }}','{{i.model_name}}','{{dept}}'); return false;">Send File</a></td>
+            <td><a href="{%url 'download_excel' i.model_name i.id%}">Download</a> </td>
+        </tr>
+        {%empty%}
+            <tr>
+                <td colspan="6" style="border:1;text-align:center">No Files found</td>
+            </tr>
+        {%endfor%}
+
+        </tbody>
+    </table>
+        </div>
+</section>
+    {% if messages %}
+  <script>
+    {% for message in messages %}
+      alert("{{ message|escapejs }}");
+    {% endfor %}
+  </script>
+{% endif %}
+
+
+<form id="sendFileForm" method="post" action="{% url 'send_merge_file' %}" style="display:none;">
+    {% csrf_token %}
+    <input type="hidden" name="id" id="fileId">
+    <input type="hidden" name="model_name" id="model_name">
+    <input type="hidden" name="category_name" id="category_name">
+    <input type="hidden" name="dept" id="dept">
+</form>
+
+<script>
+function sendFile(id, category,model_name,dept) {
+    document.getElementById('fileId').value = id;
+    document.getElementById('model_name').value = model_name;
+    document.getElementById('category_name').value = category;
+    document.getElementById('dept').value = dept;
+    document.getElementById('sendFileForm').submit();
+}
+
+function openModal() {
+    document.getElementById("passwordModal").style.display = "block";
+}
+function closeModal() {
+    document.getElementById("passwordModal").style.display = "none";
+}
+
+// Close modal if user clicks outside content
+window.onclick = function(event) {
+    var modal = document.getElementById("passwordModal");
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+</script>
+</body>
+</html>

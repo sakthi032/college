@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{% static 'staff/images/favicon.ico' %}"
+    />
+    <title>Student Attainment Reporting system</title>
+    <link rel="stylesheet" href="{%static 'staff/css/theory_form.css'%}" />
+  </head>
+  <body>
+    <div class="container mt-4">
+      <h1 class="text-center">THEORY</h1>
+      <form id="headerForm" class="mb-4">
+        <div class="row">
+          <div class="col-md-6">
+            <label for="programme" class="form-label">Programme</label>
+            <input
+              type="text"
+              id="programme"
+              class="form-control"
+              placeholder="Enter Programme Name"
+            />
+          </div>
+          <div class="col-md-6">
+            <label for="courseName" class="form-label">Course Name</label>
+            <input
+              type="text"
+              id="courseName"
+              class="form-control"
+              placeholder="Enter Course Name"
+            />
+          </div>
+          <div class="col-md-6">
+            <label for="courseCode" class="form-label">Course Code</label>
+            <input
+              type="text"
+              id="courseCode"
+              class="form-control"
+              placeholder="Enter Course Code"
+            />
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-md-6">
+            <label for="academicYear" class="form-label">Academic Year</label>
+            <input
+              type="text"
+              id="academicYear"
+              class="form-control"
+              placeholder="Enter Academic Year"
+            />
+          </div>
+          <div class="col-md-6">
+            <label for="semester" class="form-label">Semester</label>
+            <input
+              type="text"
+              id="semester"
+              class="form-control"
+              placeholder="Enter Semester"
+            />
+          </div>
+          <div class="col-md-6">
+              <label for="numStudents" class="form-label">Number of Students</label>
+        <input
+          type="number"
+          id="numStudents"
+          class="form-control mb-3"
+          placeholder="Enter number of students"
+          min="1"
+          oninput="generateTable()"
+        />
+          </div>
+        </div>
+      </form>
+
+      <div>
+        <div class="file-upload">
+          <label for="excelFile">📂 Upload Excel File</label>
+          <input
+            type="file"
+            id="excelFile"
+            accept=".xlsx, .xls"
+            onchange="handleFile()"
+          />
+        </div>
+      </div>
+
+      <table class="table table-bordered mt-4" id="studentsTable">
+        <thead>
+          <tr>
+            <th>Reg. No</th>
+            <th>Name of the Student</th>
+            <th>ESE</th>
+            <th>CIA</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div>
+      <table id="ALLCOs">
+        <tr>
+          <th colspan="7">Course Outcome Survey</th>
+        </tr>
+        <tr>
+          <th>COs</th>
+          <th>Excellent</th>
+          <th>Good</th>
+          <th>Fair</th>
+          <th>Total</th>
+          <th>Percentage%</th>
+          <th>Outcome</th>
+        </tr>
+        <tr>
+          <td>CO1</td>
+          <td>
+            <input
+              id="Excellent1"
+              type="number"
+              placeholder="0"
+              oninput="COs();over()"
+            />
+          </td>
+          <td>
+            <input
+              id="Good1"
+              type="number"
+              placeholder="0"
+              oninput="COs();over()"
+            />
+          </td>
+          <td>
+            <input
+              id="Fair1"
+              type="number"
+              placeholder="0"
+              oninput="COs();over()"
+            />
+          </td>
+          <td id="Total1">0</td>
+          <td id="Persentage1">0.00</td>
+          <td id="Outcome1">0</td>
+        </tr>
+        <tr>
+          <td>CO2</td>
+          <td>
+            <input
+              id="Excellent2"
+              type="number"
+              placeholder="0"
+              oninput="COs();over()"
+            />
+          </td>
+          <td>
+            <input
+              id="Good2"
+              type="number"
+              placeholder="0"
+              oninput="COs();over()"
+            />
+          </td>
+          <td>
+            <input
+              id="Fair2"
+              type="number"
+              placeholder="0"
+              oninput="COs();over()"
+            />
+          </td>
+          <td id="Total2">0</td>
+          <td id="Persentage2">0.00</td>
+          <td id="Outcome2">0</td>
+        </tr>
+        <tr>
+          <td>CO3</td>
+          <td>
+            <input
+              id="Excellent3"
+              type="number"
+              placeholder="0"
+              oninput="COs();over()"
+            />
+          </td>
+          <td>
+            <input
+              id="Good3"
+              type="number"
+              placeholder="0"
+              oninput="COs();over()"
+            />
+          </td>
+          <td>
+            <input
+              id="Fair3"
+              type="number"
+              placeholder="0"
+              oninput="COs();over()"
+            />
+          </td>
+          <td id="Total3">0</td>
+          <td id="Persentage3">0.00</td>
+          <td id="Outcome3">0</td>
+        </tr>
+        <tr>
+          <td>CO4</td>
+          <td>
+            <input
+              id="Excellent4"
+              type="number"
+              placeholder="0"
+              oninput="COs();over()"
+            />
+          </td>
+          <td>
+            <input
+              id="Good4"
+              type="number"
+              placeholder="0"
+              oninput="COs();over()"
+            />
+          </td>
+          <td>
+            <input
+              id="Fair4"
+              type="number"
+              placeholder="0"
+              oninput="COs();over()"
+            />
+          </td>
+          <td id="Total4">0</td>
+          <td id="Persentage4">0.00</td>
+          <td id="Outcome4">0</td>
+        </tr>
+        <tr>
+          <td>CO5</td>
+          <td>
+            <input
+              id="Excellent5"
+              type="number"
+              placeholder="0"
+              oninput="COs();over()"
+            />
+          </td>
+          <td>
+            <input
+              id="Good5"
+              type="number"
+              placeholder="0"
+              oninput="COs();over()"
+            />
+          </td>
+          <td>
+            <input
+              id="Fair5"
+              type="number"
+              placeholder="0"
+              oninput="COs();over()"
+            />
+          </td>
+          <td id="Total5">0</td>
+          <td id="Persentage5">0.00</td>
+          <td id="Outcome5">0</td>
+        </tr>
+
+        <tr >
+          <th colspan="3">Direct Tool - University Examination [ESE]</th>
+        </tr>
+        <tr>
+          <th colspan="2">Total No.of O grade</th>
+          <td id="O">0</td>
+        </tr>
+        <tr>
+          <th colspan="2">Total No.of D grade</th>
+          <td id="D">0</td>
+        </tr>
+        <tr>
+          <th colspan="2">Total No.of A+ grade</th>
+          <td id="A+">0</td>
+        </tr>
+        <tr>
+          <th colspan="2">Total No.of A grade</th>
+          <td id="A">0</td>
+        </tr>
+        <tr>
+          <th colspan="2">Total No.of B grade</th>
+          <td id="B">0</td>
+        </tr>
+        <tr>
+          <th colspan="2">Total No.of C grade</th>
+          <td id="C">0</td>
+        </tr>
+        <tr>
+          <th colspan="2">Total No.of U grade</th>
+          <td id="U">0</td>
+        </tr>
+        <tr>
+          <th colspan="2">Total No.of AAA grade</th>
+          <td id="AAA">0</td>
+        </tr>
+        <tr>
+          <th colspan="2">Total Students</th>
+          <td id="all">0</td>
+        </tr>
+        <tr>
+          <th colspan="2">No.of Passed students</th>
+          <td id="pass">0</td>
+        </tr>
+        <tr>
+          <th colspan="2">percentage %</th>
+          <td id="studentsper">0</td>
+        </tr>
+        <tr>
+          <th colspan="2">University Attainment</th>
+          <td id="university">0</td>
+        </tr>
+      </table>
+    </div>
+    <div>
+      <table>
+        <tr>
+          <th colspan="3">Internal Examination [CIA]</th>
+        </tr>
+        <tr>
+          <th>more then 70%</th>
+          <th>percentage %</th>
+          <th>UNIV ATTAINMENT</th>
+        </tr>
+        <tr>
+          <td id="cia70">0</td>
+          <td id="ciaper">0</td>
+          <td id="ciauni">0</td>
+        </tr>
+      </table>
+    </div>
+    <div>
+      <table>
+        <tr>
+          <th colspan="7">Overall CO Attainment</th>
+        </tr>
+        <tr>
+          <th>COs</th>
+          <th>survey(IDA)</th>
+          <th>0.2 * IDA</th>
+          <th>0.6 * U A</th>
+          <th>0.4 * IA</th>
+          <th>DA</th>
+          <th>Overall Attainment</th>
+        </tr>
+        <tr>
+          <th>CO1</th>
+          <th id="ida1">0</th>
+          <th id="point1">0</th>
+          <th id="point21">0</th>
+          <th id="IA1">0</th>
+          <th id="totalPoint1">0</th>
+          <th id="max1">0</th>
+        </tr>
+        <tr>
+          <th>CO2</th>
+          <th id="ida2">0</th>
+          <th id="point2">0</th>
+          <th id="point22">0</th>
+          <th id="IA2">0</th>
+          <th id="totalPoint2">0</th>
+          <th id="max2">0</th>
+        </tr>
+        <tr>
+          <th>CO3</th>
+          <th id="ida3">0</th>
+          <th id="point3">0</th>
+          <th id="point23">0</th>
+          <th id="IA3">0</th>
+          <th id="totalPoint3">0</th>
+          <th id="max3">0</th>
+        </tr>
+        <tr>
+          <th>CO4</th>
+          <th id="ida4">0</th>
+          <th id="point4">0</th>
+          <th id="point24">0</th>
+          <th id="IA4">0</th>
+          <th id="totalPoint4">0</th>
+          <th id="max4">0</th>
+        </tr>
+        <tr>
+          <th>CO5</th>
+          <th id="ida5">0</th>
+          <th id="point5">0</th>
+          <th id="point25">0</th>
+          <th id="IA5">0</th>
+          <th id="totalPoint5">0</th>
+          <th id="max5">0</th>
+        </tr>
+        <tr>
+          <th></th>
+          <th id="allpoint">0</th>
+          <th colspan="3"></th>
+          <th id="avarage">0</th>
+          <th id="alltotal">0</th>
+        </tr>
+        <tr>
+          <th colspan="6">Overall Attainment</th>
+          <th id="ultramax">0</th>
+        </tr>
+      </table>
+    </div>
+    <div style="text-align: center">
+      <button class="btn btn-success mt-3" onclick="saveToDatabase()">
+        Create Excel
+      </button>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="{% static 'staff/js/theory_form.js' %}">
+    </script>
+  </body>
+</html>

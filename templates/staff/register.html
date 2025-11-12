@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{% static 'staff/images/favicon.ico' %}">
+    <title>Student Attainment Reporting system</title>
+    <link rel="stylesheet" href="{% static 'staff/css/registerstyle.css' %}">
+</head>
+<body>
+  {% if messages %}
+    {% for message in messages %}
+      <script>
+        alert("{{ message|safe }}");
+      </script>
+    {% endfor %}
+  {% endif %}
+
+
+    <div class="con">
+        <h1 class="login">Register</h1>
+        <form id="registerForm" method="post">
+            {%csrf_token%}
+            <div class="clg">
+                {{form.username.label_tag}}
+                {{form.username}}
+            </div>
+            <div class="clg">
+                {{form.email.label_tag}}
+                {{form.email}}
+            </div>
+            <div class="clg">
+                {{form.password1.label_tag}}
+                {{form.password1}}
+            </div>
+            <div class="clg">
+                {{form.password2.label_tag}}
+                {{form.password2}}
+            </div>
+            <button type="submit" id="registerButton" class="reg-btn">Register</button>
+            <a href="{% url 'login' %}" class="reg" >Login here</a>
+</form>
+    </div>
+<!--      <script type="module" src="{% static 'attainment/js/register.js' %}"></script>-->
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{% static 'staff/images/favicon.ico' %}">
+    <title>Student Attainment Reporting system</title>
+    <link rel="stylesheet" href="{%static 'staff/css/staff_login.css'%}">
+</head>
+<body>
+  {% if messages %}
+    {% for message in messages %}
+      <script>
+        alert("{{ message|safe }}");
+      </script>
+    {% endfor %}
+  {% endif %}
+        <div class="con">
+        <h1 class="staff_login">Login</h1>
+        <form id="loginForm" method="post">
+            {%csrf_token%}
+    <label>Select Department:</label>
+    <select name="department" required>
+      <option value="Arabic">Arabic</option>
+      <option value="Biochemistry">Biochemistry</option>
+      <option value="Bioelectronics and Biosensors">Bioelectronics and Biosensors</option>
+      <option value="Bioinformatics">Bioinformatics</option>
+      <option value="Biotechnology">Biotechnology</option>
+      <option value="Botany">Botany</option>
+      <option value="Business Administration">Business Administration (BBA)</option>
+      <option value="Chemistry">Chemistry</option>
+      <option value="Commerce">Commerce</option>
+      <option value="Commerce with Computer Applications">Commerce with Computer Applications</option>
+      <option value="Computer Applications">Computer Applications (BCA)</option>
+      <option value="Computer Science">Computer Science</option>
+      <option value="Culture">Culture</option>
+      <option value="Data Science">Data Science</option>
+      <option value="Economics">Economics</option>
+      <option value="Electronics">Electronics</option>
+      <option value="English">English</option>
+      <option value="Energy Sciences">Energy Sciences</option>
+      <option value="Fine Arts">Fine Arts</option>
+      <option value="Fisheries Science">Fisheries Science</option>
+      <option value="Geology">Geology</option>
+      <option value="History">History</option>
+      <option value="Home Science">Home Science</option>
+      <option value="Industrial Chemistry">Industrial Chemistry</option>
+      <option value="Journalism & Mass Communication">Journalism & Mass Communication</option>
+      <option value="Mathematics">Mathematics</option>
+      <option value="Microbiology">Microbiology</option>
+      <option value="Nanoscience and Technology">Nanoscience and Technology</option>
+      <option value="Nutrition and Dietetics">Nutrition and Dietetics</option>
+      <option value="Oceanography and Coastal Area Studies">Oceanography and Coastal Area Studies</option>
+      <option value="Physics">Physics</option>
+      <option value="Political Science">Political Science</option>
+      <option value="Psychology">Psychology</option>
+      <option value="Public Administration">Public Administration</option>
+      <option value="Tamil">Tamil</option>
+      <option value="Theatre and Film Studies">Theatre and Film Studies</option>
+      <option value="Women’s Studies">Women’s Studies</option>
+      <option value="Zoology">Zoology</option>
+    </select>
+    <label>College User Name:</label>
+    <input type="text" name="username" required>
+    <label>Password:</label>
+    <input type="password" name="password" required>
+            <button type="submit" class="login-btn">Login</button>
+    </form>
+    </div>
+
+</body>
+</html>

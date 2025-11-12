@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{% static 'staff/images/favicon.ico' %}">
+    <title>Student Attainment Reporting system</title>
+    <link rel="stylesheet" href="{%static 'staff/css/admin_main_page.css'%}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>ADMIN DASHBOARD <span class="cursor"></span></h1>
+        <a href="{%url 'add_dept'%}" class="glitch-button">Add Department</a>
+        <a href="#" class="glitch-button">View Excel Files</a>
+        <a href="#" class="glitch-button">View Exam Result</a>
+    </div>
+
+</body>
+</html>

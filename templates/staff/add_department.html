@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{% static 'staff/images/favicon.ico' %}">
+    <title>Student Attainment Reporting system</title>
+    <link rel="stylesheet" href="{%static 'staff/css/add_department.css'%}">
+</head>
+<body>
+ {% if messages %}
+    {% for message in messages %}
+      <script>
+        alert("{{ message|safe }}");
+      </script>
+    {% endfor %}
+  {% endif %}
+        <header>ADMIN DASHBOARD</header>
+        <aside>
+    <div class="menu">
+        <a href="{% url 'admin_merge_file' %}">Merge Excel File</a>
+        <a href="{% url 'merged_files' %}">View Merged File</a>
+        <a href="{% url 'failed_students' %}">Failed Student</a>
+
+    </div>
+    <div class="bottom-menu">
+    <a href="javascript:void(0);" onclick="openModal()" >Change Password</a>
+                <a href="{% url 'logout' %}"
+           onclick="return confirm('Are you sure you want to logout?')"
+           class="logout-btn">Logout</a>
+    </div>
+</aside>
+    <div class="con">
+<section>
+    <form method="post" class="add">
+        {%csrf_token%}
+<select name="departments">
+  <option value="Arabic">Arabic</option>
+  <option value="Biochemistry">Biochemistry</option>
+  <option value="Bioelectronics and Biosensors">Bioelectronics and Biosensors</option>
+  <option value="Bio informatics">Bio informatics</option>
+  <option value="Biotechnology">Biotechnology</option>
+  <option value="Botany">Botany</option>
+  <option value="Business Administration">Business Administration (BBA)</option>
+  <option value="Chemistry">Chemistry</option>
+  <option value="Commerce">Commerce</option>
+  <option value="Commerce with Computer Applications">Commerce with Computer Applications</option>
+  <option value="Computer Applications">Computer Applications (BCA)</option>
+  <option value="Computer Science">Computer Science</option>
+  <option value="Culture">Culture</option>
+  <option value="Data Science">Data Science</option>
+  <option value="Economics">Economics</option>
+  <option value="Electronics">Electronics</option>
+  <option value="English">English</option>
+  <option value="Energy Sciences">Energy Sciences</option>
+  <option value="Fine Arts">Fine Arts</option>
+  <option value="Fisheries Science">Fisheries Science</option>
+  <option value="Geology">Geology</option>
+  <option value="History">History</option>
+  <option value="Home Science">Home Science</option>
+  <option value="Industrial Chemistry">Industrial Chemistry</option>
+  <option value="Journalism & Mass Communication">Journalism & Mass Communication</option>
+  <option value="Mathematics">Mathematics</option>
+  <option value="Microbiology">Microbiology</option>
+  <option value="Nano science and Technology">Nano science and Technology</option>
+  <option value="Nutrition and Dietetics">Nutrition and Dietetics</option>
+  <option value="Oceanography and Coastal Area Studies">Oceanography and Coastal Area Studies</option>
+  <option value="Physics">Physics</option>
+  <option value="Political Science">Political Science</option>
+  <option value="Psychology">Psychology</option>
+  <option value="Public Administration">Public Administration</option>
+  <option value="Tamil">Tamil</option>
+  <option value="Theatre and Film Studies">Theatre and Film Studies</option>
+  <option value="Women’s Studies">Women’s Studies</option>
+  <option value="Zoology">Zoology</option>
+</select>
+        <button type="submit" class="btn">ADD NEW</button>
+    </form>
+
+    <div class="tab">
+    <table border="1">
+    <tr>
+        <th>S.NO</th>
+        <th>DEPARTMENT</th>
+        <th>DATE</th>
+        <th>DELETE</th>
+    </tr>
+             <tbody>
+                {% for j in data %}
+                <tr id="{{j.id}}" >
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ j.name }}</td>
+                    <td>{{j.created_at}}</td>
+                    <td ><a id="update" href="{% url 'delete_user' j.id %}" onclick="return confirm('Are you sure?');">DELETE</a></td>
+                </tr>
+            {%empty%}
+            <tr>
+                <td colspan="5" style="border:1">No Data found</td>
+            </tr>
+                {% endfor %}
+            </tbody>
+
+</table>
+        </div>
+    </section>
+</div>
+
+<!-- Modal Background -->
+<div id="passwordModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2>Change Password</h2>
+    <form method="post" action="{% url 'password_change' %}">
+        {% csrf_token %}
+        <label for="old_password">Current Password</label>
+        <input class="change_pass" type="password" name="old_password" placeholder="Enter current password" required>
+
+        <label for="new_password1">New Password</label>
+        <input class="change_pass" type="password" name="new_password1" placeholder="Enter new password" required>
+
+        <label for="new_password2">Confirm New Password</label>
+        <input class="change_pass" type="password" name="new_password2" placeholder="Re-enter new password" required>
+
+        <button type="submit" class="btn-submit"  onclick="return confirm('Are You Sure Want To Change Password?');">Update Password</button>
+    </form>
+  </div>
+</div>
+
+<script>
+    function openModal() {
+    document.getElementById("passwordModal").style.display = "block";
+}
+function closeModal() {
+    document.getElementById("passwordModal").style.display = "none";
+}
+
+// Close modal if user clicks outside content
+window.onclick = function(event) {
+    var modal = document.getElementById("passwordModal");
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+</body>
+</html>

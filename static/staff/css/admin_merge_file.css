@@ -1,0 +1,220 @@
+/* ================================
+   Admin Merge File Page Styling
+   ================================ */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #141E30, #243B55);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    animation: fadeIn 1.2s ease-in;
+}
+
+/* ---------- Header ---------- */
+header {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    text-align: center;
+    padding: 1.5rem 0;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    animation: slideDown 1s ease;
+}
+
+header h1 {
+    color: #00E0FF;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+}
+
+/* ---------- Section ---------- */
+section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 2rem;
+}
+
+.con {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 2rem;
+    width: 90%;
+    max-width: 1100px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+    animation: floatUp 1.2s ease;
+}
+
+/* ---------- Search Section ---------- */
+.search {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    gap: 1rem;
+}
+
+.search a.button {
+    background: linear-gradient(45deg, #00C6FF, #0072FF);
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 198, 255, 0.3);
+}
+
+.search a.button:hover {
+    background: linear-gradient(45deg, #0072FF, #00C6FF);
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 198, 255, 0.5);
+}
+
+.search form {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+.search input[type="text"],
+.search select {
+    padding: 0.7rem 1rem;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.2);
+    font-weight: 400;
+    width: 200px;
+    transition: 0.3s ease;
+}
+
+.search input::placeholder {
+    color: #ddd;
+}
+
+.search input:focus,
+.search select:focus {
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 8px #00C6FF;
+}
+
+.search button {
+    padding: 0.7rem 1.5rem;
+    border: none;
+    background: #00E0FF;
+    color: #000;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.search button:hover {
+    background: #00C6FF;
+    transform: translateY(-2px);
+}
+
+/* ---------- Table ---------- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+thead {
+    background: linear-gradient(45deg, #00C6FF, #0072FF);
+}
+
+th {
+    padding: 0.9rem;
+    color: #fff;
+    text-align: left;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+}
+
+td {
+    padding: 0.9rem;
+    color: #f1f1f1;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+tbody tr:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transition: 0.3s;
+}
+
+/* Delete link */
+td a {
+    color: #FF4B4B;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+td a:hover {
+    color: #FF7B7B;
+    text-shadow: 0 0 8px #FF4B4B;
+}
+
+/* Empty table row */
+td[colspan] {
+    text-align: center;
+    color: #ccc;
+    font-style: italic;
+    padding: 1.2rem;
+}
+
+/* ---------- Animations ---------- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes floatUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+    .con {
+        padding: 1.5rem;
+    }
+
+    .search {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search input,
+    .search select,
+    .search button {
+        width: 100%;
+    }
+
+    th, td {
+        font-size: 0.85rem;
+    }
+}

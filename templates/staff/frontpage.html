@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% load static %}
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Search student results and internal marks online using registration number.">
+    <meta name="keywords" content="college, student result, online search, internal marks">
+    <link rel="icon" type="image/x-icon" href="{% static 'staff/images/favicon.ico' %}">
+    <title>Student Attainment Reporting system</title>
+    <link rel="stylesheet" href="{% static  'staff/css/frontpage.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Student Attainment Reporting system</h1>
+        <a href="{% url 'login' %}">ADMIN</a>
+        <a href="{% url 'staff_login' %}">STAFF</a>
+        <a href="{% url 'student_result' %}">STUDENT</a>
+    </div>
+</body>
+</html>
