@@ -24,6 +24,6 @@ urlpatterns = [
     path("logout/", views.custom_logout, name="logout"),
     path('failed-students/', views.failed_students, name='failed_students'),
     path('dept-failed-students/', views.dept_failed_students, name='dept_failed_students'),
-    path('student-view/', views.student_result, name='student_result'),
+    path('student-view-data/', views.student_result, name='student_result'),
 
 ]
