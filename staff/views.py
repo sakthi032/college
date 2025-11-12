@@ -1244,18 +1244,35 @@ def dept_failed_students(request):
     return render(request, "staff/dept_failed_students.html", {"query":query,"students": students,"college": college,"status":status})
 
 
-def student_result(request):
-    query = request.GET.get("query", "").strip()
-    status = request.GET.get("status", "All")
-    students = None
-    college = None
-    if query:
-        if status != "All":
-            students = StudentGrade.objects.filter(reg_no=query, status=status).order_by("-total")
-            college = CollegeExam.objects.filter(reg_no=query, status=status).order_by("-total")
-        else:
-            students = StudentGrade.objects.filter(reg_no=query).order_by("-total")
-            college = CollegeExam.objects.filter(reg_no=query).order_by("-total")
-    return render(request, "staff/student_result.html",context = {"query": query,"status": status,"students": students,"college": college})
+from django.shortcuts import render
+from django.http import HttpResponse
+from .models import StudentGrade, CollegeExam
+import traceback
 
+def student_result(request):
+    try:
+        query = request.GET.get("query", "").strip()
+        status = request.GET.get("status", "All")
+        students = None
+        college = None
+
+        if query:
+            if status != "All":
+                students = StudentGrade.objects.filter(reg_no=query, status=status).order_by("-total")
+                college = CollegeExam.objects.filter(reg_no=query, status=status).order_by("-total")
+            else:
+                students = StudentGrade.objects.filter(reg_no=query).order_by("-total")
+                college = CollegeExam.objects.filter(reg_no=query).order_by("-total")
+
+        return render(request, "staff/student_result.html", context={
+            "query": query,
+            "status": status,
+            "students": students,
+            "college": college
+        })
+
+    except Exception as e:
+        print("ERROR in /student-view/:", e)
+        print(traceback.format_exc())
+        return HttpResponse("An error occurred. Check logs.", status=500)
 
