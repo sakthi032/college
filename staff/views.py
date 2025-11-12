@@ -1245,18 +1245,17 @@ def dept_failed_students(request):
 
 
 def student_result(request):
-    # query = request.GET.get("query", "").strip()
-    # status = request.GET.get("status", "All")
-    # students = None
-    # college = None
-    # if query:
-    #     if status != "All":
-    #         students = StudentGrade.objects.filter(reg_no=query, status=status).order_by("-total")
-    #         college = CollegeExam.objects.filter(reg_no=query, status=status).order_by("-total")
-    #     else:
-    #         students = StudentGrade.objects.filter(reg_no=query).order_by("-total")
-    #         college = CollegeExam.objects.filter(reg_no=query).order_by("-total")
-    # context = {"query": query,"status": status,"students": students,"college": college}
-    return render(request, "staff/student_result.html")
+    query = request.GET.get("query", "").strip()
+    status = request.GET.get("status", "All")
+    students = None
+    college = None
+    if query:
+        if status != "All":
+            students = StudentGrade.objects.filter(reg_no=query, status=status).order_by("-total")
+            college = CollegeExam.objects.filter(reg_no=query, status=status).order_by("-total")
+        else:
+            students = StudentGrade.objects.filter(reg_no=query).order_by("-total")
+            college = CollegeExam.objects.filter(reg_no=query).order_by("-total")
+    return render(request, "staff/student_result.html",context = {"query": query,"status": status,"students": students,"college": college})
 
 
