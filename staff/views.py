@@ -1256,6 +1256,6 @@ def student_result(request):
         else:
             students = StudentGrade.objects.filter(reg_no=query).order_by("-total")
             college = CollegeExam.objects.filter(reg_no=query).order_by("-total")
-    return render(request, "staff/student_result.html",context = {"query": query,"status": status,"students": students,"college": college})
+    return render(request, "staff/Student_result.html",context = {"query": query,"status": status,"students": students,"college": college})
 
 
