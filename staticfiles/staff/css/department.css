@@ -21,7 +21,7 @@ header {
     background-color: #4a90e2;
     color: #fff;
     display: flex;
-    justify-content:center;
+    justify-content: center;
     align-items: center;
     padding: 0 20px;
     font-size: 20px;
@@ -77,12 +77,12 @@ form.search input[type="text"] {
     border-radius: 6px 0 0 6px;
     font-size: 14px;
 }
-form.search .file-category{
+
+form.search .file-category {
     padding: 10px 15px;
     border: 1px solid #ccc;
     border-radius: 6px 0 0 6px;
     font-size: 14px;
-
 }
 
 form.search button {
@@ -106,10 +106,10 @@ table {
     font-size: 14px;
 }
 
-#category{
-text-align:center;
-background:#02c1e3;
-font-size:1.2rem;
+#category {
+    text-align: center;
+    background: #02c1e3;
+    font-size: 1.2rem;
 }
 
 table thead {
@@ -137,7 +137,252 @@ table a:hover {
     text-decoration: underline;
 }
 
-@media(max-width: 768px) {
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+}
+
+/* Modal box */
+.modal-content {
+    background: #fff;
+    margin: 10% auto;
+    padding: 25px;
+    border-radius: 10px;
+    width: 400px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    animation: fadeIn 0.4s;
+}
+
+/* Close button */
+.close {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+}
+
+h2 {
+    margin-bottom: 15px;
+    color: #444;
+    text-align: center;
+}
+
+form label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #555;
+}
+
+form .change_pass {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.btn-submit {
+    background: #3498db;
+    color: white;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn-submit:hover {
+    background: #2980b9;
+}
+
+.btn-change {
+    background: #27ae60;
+    color: #fff;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-change:hover {
+    background: #219150;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Extra large devices (1200px and up) */
+@media (min-width: 1200px) {
+    body {
+        grid-template-columns: 280px 1fr;
+    }
+    
+    header {
+        font-size: 22px;
+    }
+    
+    aside {
+        padding: 25px 0;
+    }
+    
+    aside a {
+        padding: 18px 30px;
+        font-size: 16px;
+    }
+    
+    section {
+        padding: 30px 40px;
+    }
+    
+    .con {
+        padding: 30px;
+    }
+    
+    table {
+        font-size: 16px;
+    }
+    
+    table th, table td {
+        padding: 15px 20px;
+    }
+    
+    form.search input[type="text"],
+    form.search .file-category {
+        padding: 12px 18px;
+        font-size: 16px;
+    }
+    
+    form.search button {
+        padding: 12px 25px;
+        font-size: 16px;
+    }
+    
+    .modal-content {
+        width: 500px;
+        padding: 30px;
+    }
+}
+
+/* Large devices (992px to 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+    body {
+        grid-template-columns: 260px 1fr;
+    }
+    
+    header {
+        font-size: 21px;
+    }
+    
+    aside a {
+        padding: 16px 26px;
+        font-size: 15px;
+    }
+    
+    section {
+        padding: 25px 35px;
+    }
+    
+    .con {
+        padding: 25px;
+    }
+    
+    table {
+        font-size: 15px;
+    }
+    
+    table th, table td {
+        padding: 14px 18px;
+    }
+    
+    form.search input[type="text"],
+    form.search .file-category {
+        padding: 11px 16px;
+        font-size: 15px;
+    }
+    
+    form.search button {
+        padding: 11px 22px;
+        font-size: 15px;
+    }
+    
+    .modal-content {
+        width: 450px;
+    }
+}
+
+/* Medium devices (768px to 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    body {
+        grid-template-columns: 240px 1fr;
+    }
+    
+    header {
+        font-size: 19px;
+    }
+    
+    aside a {
+        padding: 14px 22px;
+        font-size: 14px;
+    }
+    
+    section {
+        padding: 20px 25px;
+    }
+    
+    .con {
+        padding: 18px;
+    }
+    
+    table {
+        font-size: 13px;
+    }
+    
+    table th, table td {
+        padding: 10px 12px;
+    }
+    
+    form.search input[type="text"],
+    form.search .file-category {
+        padding: 9px 14px;
+        font-size: 14px;
+    }
+    
+    form.search button {
+        padding: 9px 18px;
+        font-size: 14px;
+    }
+    
+    .modal-content {
+        width: 420px;
+    }
+}
+
+/* Small devices (576px to 767px) */
+@media (min-width: 576px) and (max-width: 767px) {
     body {
         grid-template-rows: 60px auto;
         grid-template-columns: 1fr;
@@ -146,109 +391,231 @@ table a:hover {
             "main"
             "aside";
     }
-
+    
+    header {
+        font-size: 18px;
+    }
+    
     aside {
         flex-direction: row;
         overflow-x: auto;
         border-right: none;
         border-top: 1px solid #ddd;
+        padding: 15px 0;
     }
-
+    
     aside a {
         flex: 1;
         text-align: center;
-        padding: 10px;
+        padding: 12px 10px;
+        font-size: 13px;
+        white-space: nowrap;
     }
+    
+    section {
+        padding: 15px 20px;
+    }
+    
+    .con {
+        padding: 15px;
+    }
+    
+    form.search {
+        flex-direction: column;
+        margin-bottom: 15px;
+    }
+    
+    form.search input[type="text"],
+    form.search .file-category {
+        border-radius: 6px;
+        margin-bottom: 10px;
+    }
+    
+    form.search button {
+        border-radius: 6px;
+    }
+    
+    table {
+        font-size: 12px;
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    
+    table th, table td {
+        padding: 8px 10px;
+    }
+    
+    .modal-content {
+        width: 90%;
+        padding: 20px;
+    }
+}
 
+/* Extra small devices (575px and below) */
+@media (max-width: 575px) {
+    body {
+        grid-template-rows: 55px auto;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "main"
+            "aside";
+    }
+    
+    header {
+        font-size: 16px;
+        padding: 0 15px;
+    }
+    
+    aside {
+        flex-direction: row;
+        overflow-x: auto;
+        border-right: none;
+        border-top: 1px solid #ddd;
+        padding: 10px 0;
+    }
+    
+    aside a {
+        flex: 1;
+        text-align: center;
+        padding: 10px 5px;
+        font-size: 12px;
+        white-space: nowrap;
+    }
+    
     section {
         padding: 15px;
     }
+    
+    .con {
+        padding: 12px;
+    }
+    
+    form.search {
+        flex-direction: column;
+        margin-bottom: 15px;
+    }
+    
+    form.search input[type="text"],
+    form.search .file-category {
+        border-radius: 6px;
+        margin-bottom: 10px;
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+    
+    form.search button {
+        border-radius: 6px;
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+    
+    table {
+        font-size: 11px;
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    
+    table th, table td {
+        padding: 6px 8px;
+    }
+    
+    .modal-content {
+        width: 95%;
+        padding: 15px;
+        margin: 15% auto;
+    }
+    
+    h2 {
+        font-size: 18px;
+    }
+    
+    form label {
+        font-size: 13px;
+    }
+    
+    form .change_pass {
+        padding: 8px;
+        font-size: 13px;
+    }
+    
+    .btn-submit {
+        padding: 8px;
+        font-size: 14px;
+    }
+    
+    .btn-change {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
 }
 
-.modal {
-  display: none; /* hidden by default */
-  position: fixed;
-  z-index: 1000;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.5);
-}
-
-
-/* Modal box */
-.modal-content {
-  background: #fff;
-  margin: 10% auto;
-  padding: 25px;
-  border-radius: 10px;
-  width: 400px;
-  position: relative;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-  animation: fadeIn 0.4s;
-}
-
-/* Close button */
-.close {
-  position: absolute;
-  top: 12px; right: 15px;
-  font-size: 22px;
-  font-weight: bold;
-  color: #333;
-  cursor: pointer;
-}
-
-h2 {
-  margin-bottom: 15px;
-  color: #444;
-  text-align: center;
-}
-
-form label {
-  display: block;
-  margin: 10px 0 5px;
-  font-weight: bold;
-  font-size: 14px;
-  color: #555;
-}
-
-form .change_pass {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 12px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 14px;
-}
-
-.btn-submit {
-  background: #3498db;
-  color: white;
-  padding: 10px;
-  width: 100%;
-  border: none;
-  border-radius: 6px;
-  font-size: 15px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-.btn-submit:hover {
-  background: #2980b9;
-}
-
-.btn-change {
-  background: #27ae60;
-  color: #fff;
-  padding: 8px 14px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-.btn-change:hover {
-  background: #219150;
-}
-
-/* Fade-in animation */
-@keyframes fadeIn {
-  from {opacity: 0; transform: translateY(-20px);}
-  to {opacity: 1; transform: translateY(0);}
+/* Very small devices (320px to 400px) */
+@media (max-width: 400px) {
+    header {
+        font-size: 14px;
+        padding: 0 10px;
+    }
+    
+    aside a {
+        padding: 8px 3px;
+        font-size: 10px;
+    }
+    
+    section {
+        padding: 10px;
+    }
+    
+    .con {
+        padding: 10px;
+    }
+    
+    form.search input[type="text"],
+    form.search .file-category {
+        padding: 7px 10px;
+        font-size: 13px;
+    }
+    
+    form.search button {
+        padding: 7px 12px;
+        font-size: 13px;
+    }
+    
+    table {
+        font-size: 10px;
+    }
+    
+    table th, table td {
+        padding: 5px 6px;
+    }
+    
+    .modal-content {
+        width: 98%;
+        padding: 12px;
+    }
+    
+    h2 {
+        font-size: 16px;
+    }
+    
+    form label {
+        font-size: 12px;
+    }
+    
+    form .change_pass {
+        padding: 7px;
+        font-size: 12px;
+    }
+    
+    .btn-submit {
+        padding: 7px;
+        font-size: 13px;
+    }
+    
+    .btn-change {
+        padding: 5px 10px;
+        font-size: 11px;
+    }
 }

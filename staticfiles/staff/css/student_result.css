@@ -242,3 +242,450 @@ tr:hover td {
     font-size: 1rem;
     animation: fadeIn 2s ease-in;
 }
+
+/* Extra large devices (1200px and up) */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1400px;
+        padding: 50px 40px;
+    }
+    
+    .container h2 {
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+    }
+    
+    .search-form {
+        margin-bottom: 50px;
+        gap: 25px;
+    }
+    
+    .filters {
+        gap: 25px;
+    }
+    
+    .dropdown {
+        padding: 12px 18px;
+        font-size: 1.1rem;
+    }
+    
+    .search-box {
+        padding: 10px 18px;
+    }
+    
+    .search-box input {
+        width: 280px;
+        padding: 12px;
+        font-size: 1.1rem;
+    }
+    
+    .btn-search {
+        padding: 12px 24px;
+        font-size: 1.1rem;
+    }
+    
+    .table-section {
+        margin-top: 50px;
+    }
+    
+    .table-section h3 {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+    }
+    
+    th {
+        padding: 15px;
+        font-size: 1rem;
+    }
+    
+    td {
+        padding: 12px;
+        font-size: 1rem;
+    }
+}
+
+/* Large devices (992px to 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .container {
+        max-width: 1100px;
+        padding: 45px 35px;
+    }
+    
+    .container h2 {
+        font-size: 2.2rem;
+        margin-bottom: 28px;
+    }
+    
+    .search-form {
+        margin-bottom: 45px;
+        gap: 22px;
+    }
+    
+    .filters {
+        gap: 22px;
+    }
+    
+    .dropdown {
+        padding: 11px 16px;
+        font-size: 1.05rem;
+    }
+    
+    .search-box {
+        padding: 9px 16px;
+    }
+    
+    .search-box input {
+        width: 250px;
+        padding: 11px;
+        font-size: 1.05rem;
+    }
+    
+    .btn-search {
+        padding: 11px 22px;
+        font-size: 1.05rem;
+    }
+    
+    .table-section {
+        margin-top: 45px;
+    }
+    
+    .table-section h3 {
+        font-size: 1.7rem;
+        margin-bottom: 12px;
+    }
+    
+    th {
+        padding: 13px;
+        font-size: 0.95rem;
+    }
+    
+    td {
+        padding: 11px;
+        font-size: 0.95rem;
+    }
+}
+
+/* Medium devices (768px to 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    body {
+        padding: 30px 10px;
+    }
+    
+    .container {
+        padding: 35px 25px;
+    }
+    
+    .container h2 {
+        font-size: 2rem;
+        margin-bottom: 25px;
+    }
+    
+    .search-form {
+        margin-bottom: 35px;
+        gap: 18px;
+    }
+    
+    .filters {
+        gap: 18px;
+    }
+    
+    .dropdown {
+        padding: 10px 14px;
+        font-size: 0.95rem;
+    }
+    
+    .search-box {
+        padding: 8px 14px;
+    }
+    
+    .search-box input {
+        width: 200px;
+        padding: 10px;
+        font-size: 0.95rem;
+    }
+    
+    .btn-search {
+        padding: 10px 18px;
+        font-size: 0.95rem;
+    }
+    
+    .table-section {
+        margin-top: 35px;
+    }
+    
+    .table-section h3 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+    
+    th {
+        padding: 11px;
+        font-size: 0.9rem;
+    }
+    
+    td {
+        padding: 9px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Small devices (576px to 767px) */
+@media (min-width: 576px) and (max-width: 767px) {
+    body {
+        padding: 20px 8px;
+    }
+    
+    .container {
+        padding: 30px 20px;
+    }
+    
+    .container h2 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+    
+    .search-form {
+        margin-bottom: 30px;
+        gap: 15px;
+    }
+    
+    .filters {
+        gap: 15px;
+    }
+    
+    .dropdown {
+        padding: 9px 12px;
+        font-size: 0.9rem;
+    }
+    
+    .search-box {
+        padding: 7px 12px;
+    }
+    
+    .search-box input {
+        width: 180px;
+        padding: 9px;
+        font-size: 0.9rem;
+    }
+    
+    .btn-search {
+        padding: 9px 16px;
+        font-size: 0.9rem;
+    }
+    
+    .table-section {
+        margin-top: 30px;
+    }
+    
+    .table-section h3 {
+        font-size: 1.3rem;
+        margin-bottom: 8px;
+    }
+    
+    th {
+        padding: 9px;
+        font-size: 0.85rem;
+    }
+    
+    td {
+        padding: 8px;
+        font-size: 0.85rem;
+    }
+    
+    /* Reduce animations for better performance on mobile */
+    .container {
+        animation: fadeIn 0.8s ease-out;
+    }
+    
+    .search-form {
+        animation: slideDown 0.8s ease;
+    }
+    
+    .table-section {
+        animation: fadeInUp 0.9s ease;
+    }
+}
+
+/* Extra small devices (575px and below) */
+@media (max-width: 575px) {
+    body {
+        padding: 15px 5px;
+    }
+    
+    .container {
+        padding: 25px 15px;
+        border-radius: 15px;
+    }
+    
+    .container h2 {
+        font-size: 1.6rem;
+        margin-bottom: 18px;
+    }
+    
+    .search-form {
+        margin-bottom: 25px;
+        gap: 12px;
+    }
+    
+    .filters {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+    }
+    
+    .dropdown {
+        width: 100%;
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+    
+    .search-box {
+        width: 100%;
+        padding: 7px 12px;
+    }
+    
+    .search-box input {
+        width: 100%;
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+    
+    .btn-search {
+        width: 100%;
+        padding: 8px 12px;
+        font-size: 0.9rem;
+        margin-top: 5px;
+    }
+    
+    .table-section {
+        margin-top: 25px;
+    }
+    
+    .table-section h3 {
+        font-size: 1.2rem;
+        margin-bottom: 8px;
+    }
+    
+    /* Make table scrollable horizontally */
+    .table-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    table {
+        min-width: 500px;
+    }
+    
+    th {
+        padding: 8px;
+        font-size: 0.8rem;
+    }
+    
+    td {
+        padding: 7px;
+        font-size: 0.8rem;
+    }
+    
+    .empty {
+        padding: 15px;
+        font-size: 0.9rem;
+    }
+    
+    /* Further reduce animations for better performance on mobile */
+    .container {
+        animation: fadeIn 0.6s ease-out;
+    }
+    
+    .search-form {
+        animation: slideDown 0.6s ease;
+    }
+    
+    .table-section {
+        animation: fadeInUp 0.7s ease;
+    }
+    
+    /* Reduce floating background elements size for mobile */
+    body::before,
+    body::after {
+        width: 200px;
+        height: 200px;
+        filter: blur(60px);
+    }
+}
+
+/* Very small devices (400px and below) */
+@media (max-width: 400px) {
+    body {
+        padding: 10px 3px;
+    }
+    
+    .container {
+        padding: 20px 12px;
+        border-radius: 12px;
+    }
+    
+    .container h2 {
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+    }
+    
+    .search-form {
+        margin-bottom: 20px;
+        gap: 10px;
+    }
+    
+    .filters {
+        gap: 10px;
+    }
+    
+    .dropdown {
+        padding: 7px 10px;
+        font-size: 0.85rem;
+    }
+    
+    .search-box {
+        padding: 6px 10px;
+    }
+    
+    .search-box input {
+        padding: 7px;
+        font-size: 0.85rem;
+    }
+    
+    .btn-search {
+        padding: 7px 10px;
+        font-size: 0.85rem;
+    }
+    
+    .table-section {
+        margin-top: 20px;
+    }
+    
+    .table-section h3 {
+        font-size: 1.1rem;
+        margin-bottom: 6px;
+    }
+    
+    th {
+        padding: 6px;
+        font-size: 0.75rem;
+    }
+    
+    td {
+        padding: 6px;
+        font-size: 0.75rem;
+    }
+    
+    .empty {
+        padding: 12px;
+        font-size: 0.85rem;
+    }
+    
+    /* Further reduce floating background elements */
+    body::before,
+    body::after {
+        width: 150px;
+        height: 150px;
+        filter: blur(50px);
+    }
+}

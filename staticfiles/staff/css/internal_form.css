@@ -64,6 +64,7 @@ button {
 button:hover {
     background-color: #0056b3;
 }
+
 .file-upload {
     display: flex;
     flex-direction: column;
@@ -181,4 +182,331 @@ input.numeric-field {
 
 .button-row input {
     display: none;
+}
+
+/* Extra large devices (1200px and up) */
+@media (min-width: 1200px) {
+    .container {
+        width: 85%;
+        max-width: 1400px;
+        padding: 40px;
+    }
+    
+    h1 {
+        font-size: 32px;
+        margin-bottom: 25px;
+    }
+    
+    .input-group {
+        gap: 25px;
+        margin-bottom: 25px;
+    }
+    
+    input[type="text"],
+    input[type="number"] {
+        padding: 12px;
+        font-size: 16px;
+    }
+    
+    button,
+    .button-row button,
+    .button-row label,
+    .button-row a {
+        padding: 12px 24px;
+        font-size: 18px;
+    }
+    
+    th, td {
+        padding: 12px;
+        font-size: 16px;
+    }
+    
+    input.regno, input.student-name {
+        width: 180px;
+    }
+    
+    input.numeric-field {
+        width: 80px;
+    }
+}
+
+/* Large devices (992px to 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .container {
+        width: 88%;
+        padding: 35px;
+    }
+    
+    h1 {
+        font-size: 30px;
+    }
+    
+    input[type="text"],
+    input[type="number"] {
+        padding: 11px;
+        font-size: 15px;
+    }
+    
+    button,
+    .button-row button,
+    .button-row label,
+    .button-row a {
+        padding: 11px 22px;
+        font-size: 17px;
+    }
+    
+    th, td {
+        padding: 11px;
+        font-size: 15px;
+    }
+    
+    input.regno, input.student-name {
+        width: 170px;
+    }
+    
+    input.numeric-field {
+        width: 70px;
+    }
+}
+
+/* Medium devices (768px to 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .container {
+        width: 90%;
+        padding: 30px;
+    }
+    
+    h1 {
+        font-size: 28px;
+    }
+    
+    .input-group {
+        gap: 20px;
+    }
+    
+    input[type="text"],
+    input[type="number"] {
+        padding: 10px;
+        font-size: 14px;
+    }
+    
+    button,
+    .button-row button,
+    .button-row label,
+    .button-row a {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+    
+    th, td {
+        padding: 10px;
+        font-size: 14px;
+    }
+    
+    input.regno, input.student-name {
+        width: 150px;
+    }
+    
+    input.numeric-field {
+        width: 60px;
+    }
+}
+
+/* Small devices (576px to 767px) */
+@media (min-width: 576px) and (max-width: 767px) {
+    body {
+        padding: 15px;
+    }
+    
+    .container {
+        width: 95%;
+        padding: 25px;
+    }
+    
+    h1 {
+        font-size: 26px;
+        margin-bottom: 18px;
+    }
+    
+    .input-group {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin-bottom: 18px;
+    }
+    
+    input[type="text"],
+    input[type="number"] {
+        padding: 9px;
+        font-size: 14px;
+    }
+    
+    button,
+    .button-row button,
+    .button-row label,
+    .button-row a {
+        padding: 9px 18px;
+        font-size: 15px;
+    }
+    
+    th, td {
+        padding: 9px;
+        font-size: 13px;
+    }
+    
+    input.regno, input.student-name {
+        width: 140px;
+    }
+    
+    input.numeric-field {
+        width: 55px;
+    }
+    
+    .button-row {
+        flex-direction: column;
+        gap: 10px;
+        align-items: stretch;
+    }
+    
+    .button-row button,
+    .button-row label,
+    .button-row a {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Extra small devices (575px and below) */
+@media (max-width: 575px) {
+    body {
+        padding: 10px;
+    }
+    
+    .container {
+        width: 98%;
+        padding: 20px;
+        border-radius: 10px;
+    }
+    
+    h1 {
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+    
+    .form-container {
+        margin-bottom: 20px;
+    }
+    
+    .input-group {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-bottom: 15px;
+    }
+    
+    input[type="text"],
+    input[type="number"] {
+        padding: 8px;
+        font-size: 14px;
+    }
+    
+    button,
+    .button-row button,
+    .button-row label,
+    .button-row a {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+    
+    th, td {
+        padding: 8px;
+        font-size: 12px;
+    }
+    
+    input.regno, input.student-name {
+        width: 120px;
+    }
+    
+    input.numeric-field {
+        width: 50px;
+    }
+    
+    .button-row {
+        flex-direction: column;
+        gap: 8px;
+        align-items: stretch;
+        margin-top: 10px;
+    }
+    
+    .button-row button,
+    .button-row label,
+    .button-row a {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .table-container {
+        margin-top: 15px;
+    }
+    
+    /* Ensure table is scrollable horizontally */
+    .table-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    table {
+        min-width: 500px;
+    }
+}
+
+/* Very small devices (400px and below) */
+@media (max-width: 400px) {
+    body {
+        padding: 8px;
+    }
+    
+    .container {
+        padding: 15px;
+        border-radius: 8px;
+    }
+    
+    h1 {
+        font-size: 22px;
+        margin-bottom: 12px;
+    }
+    
+    .input-group {
+        gap: 10px;
+        margin-bottom: 12px;
+    }
+    
+    input[type="text"],
+    input[type="number"] {
+        padding: 7px;
+        font-size: 13px;
+    }
+    
+    button,
+    .button-row button,
+    .button-row label,
+    .button-row a {
+        padding: 7px 14px;
+        font-size: 13px;
+    }
+    
+    th, td {
+        padding: 7px;
+        font-size: 11px;
+    }
+    
+    input.regno, input.student-name {
+        width: 100px;
+    }
+    
+    input.numeric-field {
+        width: 45px;
+    }
+    
+    table {
+        min-width: 450px;
+    }
 }

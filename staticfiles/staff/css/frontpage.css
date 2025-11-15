@@ -1,79 +1,248 @@
-       @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
 
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            color: #fff;
-            text-align: center;
-            overflow: hidden;
-        }
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #fff;
+    text-align: center;
+    overflow: hidden;
+}
 
-        .container {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(12px);
-            padding: 35px;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
-            transition: transform 0.3s, box-shadow 0.3s;
-            animation: fadeIn 1.2s ease-in-out;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-        }
+.container {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    padding: 35px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: fadeIn 1.2s ease-in-out;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    max-width: 500px;
+}
 
-        .container:hover {
-            transform: scale(1.03);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        }
+.container:hover {
+    transform: scale(1.03);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
 
-        .container h1 {
-            font-size: 28px;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #fff;
-            padding-bottom: 10px;
-            font-weight: 700;
-            animation: slideIn 1s ease-in-out;
-        }
+.container h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #fff;
+    padding-bottom: 10px;
+    font-weight: 700;
+    animation: slideIn 1s ease-in-out;
+}
 
-        .container a {
-            display: block;
-            background: rgba(255, 255, 255, 0.25);
-            text-decoration: none;
-            color: #fff;
-            font-size: 20px;
-            padding: 15px 20px;
-            margin: 12px 0;
-            border-radius: 12px;
-            transition: all 0.3s ease-in-out;
-            position: relative;
-            overflow: hidden;
-            animation: bounceIn 1.3s ease-in-out;
-            font-weight: 600;
-        }
+.container a {
+    display: block;
+    background: rgba(255, 255, 255, 0.25);
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+    padding: 15px 20px;
+    margin: 12px 0;
+    border-radius: 12px;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    animation: bounceIn 1.3s ease-in-out;
+    font-weight: 600;
+}
 
-        .container a:hover {
-            background: linear-gradient(135deg, #ffffff, #e0c3fc);
-            color: #764ba2;
-            transform: scale(1.08);
-            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.4);
-        }
+.container a:hover {
+    background: linear-gradient(135deg, #ffffff, #e0c3fc);
+    color: #764ba2;
+    transform: scale(1.08);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.4);
+}
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateX(-40px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(-40px); }
+    to { opacity: 1; transform: translateX(0); }
+}
 
-        @keyframes bounceIn {
-            0% { opacity: 0; transform: scale(0.7); }
-            50% { opacity: 0.5; transform: scale(1.15); }
-            100% { opacity: 1; transform: scale(1); }
-        }
+@keyframes bounceIn {
+    0% { opacity: 0; transform: scale(0.7); }
+    50% { opacity: 0.5; transform: scale(1.15); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* Extra large devices (1200px and up) */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 600px;
+        padding: 45px;
+    }
+    
+    .container h1 {
+        font-size: 32px;
+        margin-bottom: 25px;
+    }
+    
+    .container a {
+        font-size: 22px;
+        padding: 18px 24px;
+        margin: 15px 0;
+    }
+}
+
+/* Large devices (992px to 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .container {
+        max-width: 550px;
+        padding: 40px;
+    }
+    
+    .container h1 {
+        font-size: 30px;
+        margin-bottom: 22px;
+    }
+    
+    .container a {
+        font-size: 21px;
+        padding: 16px 22px;
+        margin: 14px 0;
+    }
+}
+
+/* Medium devices (768px to 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .container {
+        max-width: 500px;
+        padding: 35px;
+    }
+    
+    .container h1 {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+    
+    .container a {
+        font-size: 20px;
+        padding: 15px 20px;
+        margin: 12px 0;
+    }
+}
+
+/* Small devices (576px to 767px) */
+@media (min-width: 576px) and (max-width: 767px) {
+    .container {
+        max-width: 450px;
+        padding: 30px;
+    }
+    
+    .container h1 {
+        font-size: 26px;
+        margin-bottom: 18px;
+    }
+    
+    .container a {
+        font-size: 18px;
+        padding: 14px 18px;
+        margin: 10px 0;
+    }
+    
+    .container:hover {
+        transform: scale(1.02);
+    }
+    
+    .container a:hover {
+        transform: scale(1.05);
+    }
+}
+
+/* Extra small devices (575px and below) */
+@media (max-width: 575px) {
+    body {
+        padding: 20px;
+    }
+    
+    .container {
+        width: 100%;
+        max-width: 400px;
+        padding: 25px;
+        border-radius: 15px;
+    }
+    
+    .container h1 {
+        font-size: 24px;
+        margin-bottom: 15px;
+        padding-bottom: 8px;
+    }
+    
+    .container a {
+        font-size: 16px;
+        padding: 12px 16px;
+        margin: 8px 0;
+        border-radius: 10px;
+    }
+    
+    .container:hover {
+        transform: scale(1.01);
+    }
+    
+    .container a:hover {
+        transform: scale(1.03);
+    }
+    
+    /* Reduce animations on mobile for better performance */
+    .container {
+        animation: fadeIn 0.8s ease-in-out;
+    }
+    
+    .container h1 {
+        animation: slideIn 0.8s ease-in-out;
+    }
+    
+    .container a {
+        animation: bounceIn 1s ease-in-out;
+    }
+}
+
+/* Very small devices (400px and below) */
+@media (max-width: 400px) {
+    body {
+        padding: 15px;
+    }
+    
+    .container {
+        padding: 20px;
+        border-radius: 12px;
+    }
+    
+    .container h1 {
+        font-size: 22px;
+        margin-bottom: 12px;
+        padding-bottom: 6px;
+    }
+    
+    .container a {
+        font-size: 15px;
+        padding: 10px 14px;
+        margin: 6px 0;
+        border-radius: 8px;
+    }
+    
+    /* Minimal hover effects on very small screens */
+    .container:hover {
+        transform: none;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+    }
+    
+    .container a:hover {
+        transform: none;
+        box-shadow: 0 5px 15px rgba(255, 255, 255, 0.4);
+    }
+}

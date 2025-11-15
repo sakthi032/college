@@ -1,112 +1,372 @@
-        body {
-            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            background-color: #f4f6f9;
-            color: #333;
-        }
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: #f4f6f9;
+    color: #333;
+}
 
-        header {
-            background: #2c3e50;
-            color: white;
-            padding: 20px 30px;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
+header {
+    background: #2c3e50;
+    color: white;
+    padding: 20px 30px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
 
-        header h1 {
-            margin: 0;
-            font-size: 26px;
-            font-weight: 600;
-        }
+header h1 {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 600;
+}
 
-        section {
-            padding: 30px;
-        }
+section {
+    padding: 30px;
+}
 
-        .con {
-            background: white;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-        }
+.con {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
 
-        .search {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-            gap: 10px;
-        }
+.search {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    gap: 10px;
+}
 
-        .search input[type="text"] {
-        width:80%;
-            padding: 10px 12px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            width: 250px;
-            transition: all 0.3s ease;
-        }
+.search input[type="text"] {
+    width: 80%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 250px;
+    transition: all 0.3s ease;
+}
 
-        .search input[type="text"]:focus {
-            border-color: #3498db;
-            box-shadow: 0 0 5px rgba(52,152,219,0.4);
-            outline: none;
-        }
+.search input[type="text"]:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52,152,219,0.4);
+    outline: none;
+}
 
-        .search button {
-            padding: 10px 18px;
-            border: none;
-            background: #3498db;
-            color: white;
-            font-weight: 600;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+.search button {
+    padding: 10px 18px;
+    border: none;
+    background: #3498db;
+    color: white;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
-        .search button:hover {
-            background: #2980b9;
-        }
+.search button:hover {
+    background: #2980b9;
+}
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 15px;
-        }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+}
 
-        thead th {
-            background: #34495e;
-            color: white;
-            padding: 12px;
-            text-align: center;
-            font-weight: 600;
-        }
+thead th {
+    background: #34495e;
+    color: white;
+    padding: 12px;
+    text-align: center;
+    font-weight: 600;
+}
 
-        tbody td {
-            padding: 12px;
-            border-bottom: 1px solid #e0e0e0;
-            text-align: center;
-        }
+tbody td {
+    padding: 12px;
+    border-bottom: 1px solid #e0e0e0;
+    text-align: center;
+}
 
-        tbody tr:hover {
-            background-color: #f9fbfd;
-        }
+tbody tr:hover {
+    background-color: #f9fbfd;
+}
 
-        tbody tr:nth-child(even) {
-            background-color: #fafafa;
-        }
+tbody tr:nth-child(even) {
+    background-color: #fafafa;
+}
 
-        a {
-            text-decoration: none;
-            color: #e74c3c;
-            font-weight: 600;
-            transition: 0.2s;
-        }
+a {
+    text-decoration: none;
+    color: #e74c3c;
+    font-weight: 600;
+    transition: 0.2s;
+}
 
-        a:hover {
-            color: #c0392b;
-        }
+a:hover {
+    color: #c0392b;
+}
 
-        td[colspan] {
-            font-style: italic;
-            color: #666;
-        }
+td[colspan] {
+    font-style: italic;
+    color: #666;
+}
+
+/* Extra large devices (1200px and up) */
+@media (min-width: 1200px) {
+    header {
+        padding: 25px 40px;
+    }
+    
+    header h1 {
+        font-size: 30px;
+    }
+    
+    section {
+        padding: 40px;
+    }
+    
+    .con {
+        padding: 30px;
+    }
+    
+    .search input[type="text"] {
+        width: 350px;
+        padding: 12px 15px;
+    }
+    
+    .search button {
+        padding: 12px 22px;
+        font-size: 16px;
+    }
+    
+    table {
+        font-size: 16px;
+    }
+    
+    thead th, tbody td {
+        padding: 15px;
+    }
+}
+
+/* Large devices (992px to 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+    header {
+        padding: 22px 35px;
+    }
+    
+    header h1 {
+        font-size: 28px;
+    }
+    
+    section {
+        padding: 35px;
+    }
+    
+    .con {
+        padding: 28px;
+    }
+    
+    .search input[type="text"] {
+        width: 300px;
+        padding: 11px 14px;
+    }
+    
+    .search button {
+        padding: 11px 20px;
+        font-size: 15px;
+    }
+    
+    table {
+        font-size: 15px;
+    }
+    
+    thead th, tbody td {
+        padding: 13px;
+    }
+}
+
+/* Medium devices (768px to 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    header {
+        padding: 20px 30px;
+    }
+    
+    header h1 {
+        font-size: 26px;
+    }
+    
+    section {
+        padding: 30px;
+    }
+    
+    .con {
+        padding: 25px;
+    }
+    
+    .search input[type="text"] {
+        width: 250px;
+        padding: 10px 12px;
+    }
+    
+    .search button {
+        padding: 10px 18px;
+        font-size: 14px;
+    }
+    
+    table {
+        font-size: 14px;
+    }
+    
+    thead th, tbody td {
+        padding: 12px;
+    }
+}
+
+/* Small devices (576px to 767px) */
+@media (min-width: 576px) and (max-width: 767px) {
+    header {
+        padding: 18px 25px;
+    }
+    
+    header h1 {
+        font-size: 24px;
+    }
+    
+    section {
+        padding: 25px;
+    }
+    
+    .con {
+        padding: 22px;
+    }
+    
+    .search {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .search input[type="text"] {
+        width: 100%;
+        max-width: 300px;
+        padding: 10px 12px;
+    }
+    
+    .search button {
+        width: 100%;
+        max-width: 300px;
+        padding: 10px 18px;
+        font-size: 14px;
+    }
+    
+    table {
+        font-size: 13px;
+    }
+    
+    thead th, tbody td {
+        padding: 10px;
+    }
+}
+
+/* Extra small devices (575px and below) */
+@media (max-width: 575px) {
+    header {
+        padding: 15px 20px;
+    }
+    
+    header h1 {
+        font-size: 22px;
+    }
+    
+    section {
+        padding: 20px;
+    }
+    
+    .con {
+        padding: 20px;
+        border-radius: 8px;
+    }
+    
+    .search {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 15px;
+    }
+    
+    .search input[type="text"] {
+        width: 100%;
+        padding: 9px 12px;
+        font-size: 14px;
+    }
+    
+    .search button {
+        width: 100%;
+        padding: 9px 15px;
+        font-size: 14px;
+    }
+    
+    table {
+        font-size: 12px;
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    
+    thead th, tbody td {
+        padding: 8px;
+    }
+    
+    /* Ensure table is scrollable horizontally */
+    .table-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    table {
+        min-width: 500px;
+    }
+}
+
+/* Very small devices (400px and below) */
+@media (max-width: 400px) {
+    header {
+        padding: 12px 15px;
+    }
+    
+    header h1 {
+        font-size: 20px;
+    }
+    
+    section {
+        padding: 15px;
+    }
+    
+    .con {
+        padding: 15px;
+    }
+    
+    .search {
+        gap: 10px;
+        margin-bottom: 12px;
+    }
+    
+    .search input[type="text"] {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+    
+    .search button {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+    
+    thead th, tbody td {
+        padding: 6px;
+        font-size: 11px;
+    }
+    
+    table {
+        min-width: 400px;
+    }
+}
