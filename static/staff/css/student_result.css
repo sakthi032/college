@@ -190,12 +190,13 @@ body::after {
     text-align: center;
 }
 
-/* 🌈 Table Container - New addition for responsiveness */
-.table-container {
+/* 🌈 Table Container - Key fix for overflow */
+.table-section {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     border-radius: 15px;
     box-shadow: 0 0 25px rgba(255,255,255,0.05);
+    margin-bottom: 30px;
 }
 
 /* 🌈 Table Design */
@@ -205,7 +206,7 @@ table {
     border-radius: 15px;
     overflow: hidden;
     background: rgba(255,255,255,0.05);
-    min-width: 600px; /* Ensures table doesn't get too cramped */
+    min-width: 800px; /* Increased minimum width for your wider tables */
 }
 
 th {
@@ -367,6 +368,7 @@ tr:hover td {
     
     .table-section {
         margin-top: 50px;
+        margin-bottom: 40px;
     }
     
     .table-section h3 {
@@ -428,6 +430,7 @@ tr:hover td {
     
     .table-section {
         margin-top: 45px;
+        margin-bottom: 35px;
     }
     
     .table-section h3 {
@@ -492,6 +495,7 @@ tr:hover td {
     
     .table-section {
         margin-top: 35px;
+        margin-bottom: 30px;
     }
     
     .table-section h3 {
@@ -556,6 +560,7 @@ tr:hover td {
     
     .table-section {
         margin-top: 30px;
+        margin-bottom: 25px;
     }
     
     .table-section h3 {
@@ -640,6 +645,7 @@ tr:hover td {
     
     .table-section {
         margin-top: 25px;
+        margin-bottom: 20px;
     }
     
     .table-section h3 {
@@ -647,13 +653,29 @@ tr:hover td {
         margin-bottom: 8px;
     }
     
-    /* Hide table on very small screens and show cards instead */
-    .table-container {
-        display: none;
+    /* Make tables scrollable on mobile */
+    .table-section {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
     }
     
-    .mobile-card {
-        display: block;
+    table {
+        min-width: 600px;
+    }
+    
+    th {
+        padding: 8px;
+        font-size: 0.8rem;
+    }
+    
+    td {
+        padding: 7px;
+        font-size: 0.8rem;
+    }
+    
+    .empty {
+        padding: 15px;
+        font-size: 0.9rem;
     }
     
     /* Further reduce animations for better performance on mobile */
@@ -724,6 +746,7 @@ tr:hover td {
     
     .table-section {
         margin-top: 20px;
+        margin-bottom: 15px;
     }
     
     .table-section h3 {
@@ -731,9 +754,19 @@ tr:hover td {
         margin-bottom: 6px;
     }
     
-    /* Adjust mobile card layout for very small screens */
-    .mobile-card-body {
-        grid-template-columns: 1fr;
+    th {
+        padding: 6px;
+        font-size: 0.75rem;
+    }
+    
+    td {
+        padding: 6px;
+        font-size: 0.75rem;
+    }
+    
+    .empty {
+        padding: 12px;
+        font-size: 0.85rem;
     }
     
     /* Further reduce floating background elements */

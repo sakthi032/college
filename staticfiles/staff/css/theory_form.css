@@ -4,6 +4,7 @@ body {
     color: #2c3e50;
     line-height: 1.6;
     font-size: 15px;
+    overflow-x: hidden; /* Prevent horizontal scroll on body */
 }
 
 h1 {
@@ -23,6 +24,8 @@ h1 {
     padding: 35px;
     border-radius: 14px;
     box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.08);
+    max-width: 100%;
+    overflow: hidden; /* Prevent content from breaking out */
 }
 
 form {
@@ -41,16 +44,16 @@ form {
     width: 100%;
     padding: 10px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .row div {
-    width: 100%;
-    padding: 10px;
+    flex: 1;
+    min-width: 250px;
+    padding: 0 10px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
 }
 
 label {
@@ -92,83 +95,227 @@ input::placeholder {
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+    margin-bottom: 25px;
 }
 
-.table thead {
-    background: linear-gradient(to right, #1565c0, #0d47a1);
+#category {
     text-align: center;
-    font-size: 0.95rem;
+    background: #02c1e3;
+    font-size: 1.2rem;
 }
 
-.table th,
-.table td {
+tablead {
+    background-color: #4a90e2;
+    color: #fff;
+}
+
+table th, table td {
+    padding: 12px 15px;
     text-align: center;
-    vertical-align: middle;
-    padding: 12px;
-    font-size: 0.93rem;
+    border-bottom: 1px solid #ddd;
+    white-space: nowrap; /* Prevent text from wrapping */
 }
 
-.table tbody tr:nth-child(even) {
-    background-color: #f9fbff;
+table tbody tr:hover {
+    background-color: #f1f5f8;
 }
 
-.table tbody tr:hover {
-    background-color: #eef4ff;
-    transition: background 0.25s ease-in-out;
+table a {
+    color: #4a90e2;
+    text-decoration: none;
+    font-weight: 500;
 }
 
+table a:hover {
+    text-decoration: underline;
+}
+
+/* Table Container - Key fix for overflow */
+.table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -15px; /* Compensate for container padding */
+    padding: 0 15px;
+    border-radius: 10px;
+}
+
+/* File Upload Button */
 .file-upload {
-    margin-left: 27px;
-    margin-top: 15px;
-    margin-bottom: 20px;
+    margin: 20px 0;
+    text-align: center;
 }
 
 .file-upload label {
-    background: #1565c0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1565c0, #0d47a1);
     color: white;
-    padding: 10px 18px;
+    padding: 12px 24px;
     border-radius: 8px;
     cursor: pointer;
-    display: inline-block;
-    font-weight: 500;
-    transition: background 0.3s;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(21, 101, 192, 0.2);
+    border: none;
 }
 
 .file-upload label:hover {
-    background: #0d47a1;
+    background: linear-gradient(135deg, #0d47a1, #1565c0);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(21, 101, 192, 0.3);
+}
+
+.file-upload label:active {
+    transform: translateY(0);
 }
 
 .file-upload input {
     display: none;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    table-layout: fixed;
+/* ===== Buttons ===== */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    outline: none;
 }
 
-table th, table td {
-    border: 1px solid #dee2e6;
+.btn-primary {
+    background-color: #1565c0;
+    border-color: #1565c0;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #0d47a1;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(21, 101, 192, 0.3);
+}
+
+.btn-success {
+    background-color: #2e7d32;
+    border-color: #2e7d32;
+    color: white;
+    box-shadow: 0 4px 10px rgba(46, 125, 50, 0.2);
+}
+
+.btn-success:hover {
+    background-color: #1b5e20;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(46, 125, 50, 0.3);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+}
+
+/* Modal box */
+.modal-content {
+    background: #fff;
+    margin: 10% auto;
+    padding: 25px;
+    border-radius: 10px;
+    width: 400px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    animation: fadeIn 0.4s;
+}
+
+/* Close button */
+.close {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+}
+
+h2 {
+    margin-bottom: 15px;
+    color: #444;
+    text-align: center;
+}
+
+form label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #555;
+}
+
+form .change_pass {
+    width: 100%;
     padding: 10px;
-    text-align: center;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
 }
 
-table th {
-    background-color: #f8f9fa;
-}
-
-/* Ensuring Proper Alignment */
-table input {
+.btn-submit {
+    background: #3498db;
+    color: white;
+    padding: 10px;
     width: 100%;
-    padding: 5px;
-    box-sizing: border-box;
-    text-align: center;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background 0.3s ease;
 }
 
-.text-center {
-    text-align: center;
+.btn-submit:hover {
+    background: #2980b9;
+}
+
+.btn-change {
+    background: #27ae60;
+    color: #fff;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-change:hover {
+    background: #219150;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Spacing */
@@ -188,49 +335,15 @@ table input {
     margin-bottom: 1.5rem;
 }
 
-/* ===== Buttons ===== */
-.btn-success,
-.btn-primary {
-    font-size: 1rem;
-    padding: 12px 28px;
-    border-radius: 8px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.btn-primary {
-    background-color: #1565c0;
-    border-color: #1565c0;
-}
-
-.btn-primary:hover {
-    background-color: #0d47a1;
-}
-
-.btn-success {
-    background-color: #2e7d32;
-    border-color: #2e7d32;
-}
-
-.btn-success:hover {
-    background-color: #1b5e20;
+.text-center {
+    text-align: center;
 }
 
 /* Extra large devices (1200px and up) */
 @media (min-width: 1200px) {
-    body {
-        font-size: 16px;
-    }
-    
     .container {
-        padding: 45px;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-    
-    form {
-        width: 80%;
-        padding: 30px;
+        max-width: 1400px;
+        padding: 40px 50px;
     }
     
     h1 {
@@ -249,35 +362,37 @@ table input {
         font-size: 1rem;
     }
     
-    .table th,
-    .table td {
-        padding: 15px;
-        font-size: 1rem;
+    .table th, .table td {
+        padding: 15px 18px;
+        font-size: 16px;
     }
     
-    .btn-success,
-    .btn-primary {
+    .btn {
         padding: 14px 32px;
         font-size: 1.1rem;
+    }
+    
+    .file-upload label {
+        padding: 14px 28px;
+        font-size: 1.1rem;
+    }
+    
+    .table-container {
+        margin: 0 -20px; /* Adjust for larger padding */
+        padding: 0 20px;
     }
 }
 
 /* Large devices (992px to 1199px) */
 @media (min-width: 992px) and (max-width: 1199px) {
     .container {
-        padding: 40px;
-        max-width: 1000px;
-        margin: 0 auto;
-    }
-    
-    form {
-        width: 85%;
-        padding: 28px;
+        max-width: 1200px;
+        padding: 35px 40px;
     }
     
     h1 {
         font-size: 2rem;
-        margin-bottom: 32px;
+        margin-bottom: 30px;
     }
     
     label {
@@ -291,35 +406,36 @@ table input {
         font-size: 0.98rem;
     }
     
-    .table th,
-    .table td {
-        padding: 13px;
-        font-size: 0.96rem;
+    .table th, .table td {
+        padding: 13px 16px;
+        font-size: 15px;
     }
     
-    .btn-success,
-    .btn-primary {
+    .btn {
         padding: 13px 30px;
         font-size: 1.05rem;
+    }
+    
+    .file-upload label {
+        padding: 13px 26px;
+        font-size: 1.05rem;
+    }
+    
+    .table-container {
+        margin: 0 -15px; /* Adjust for padding */
+        padding: 0 15px;
     }
 }
 
 /* Medium devices (768px to 991px) */
 @media (min-width: 768px) and (max-width: 991px) {
     .container {
-        padding: 35px;
-        max-width: 900px;
-        margin: 0 auto;
-    }
-    
-    form {
-        width: 90%;
-        padding: 25px;
+        padding: 30px 25px;
     }
     
     h1 {
         font-size: 1.8rem;
-        margin-bottom: 28px;
+        margin-bottom: 25px;
     }
     
     label {
@@ -333,38 +449,44 @@ table input {
         font-size: 0.95rem;
     }
     
-    .table th,
-    .table td {
-        padding: 12px;
-        font-size: 0.93rem;
+    .table th, .table td {
+        padding: 11px 14px;
+        font-size: 14px;
     }
     
-    .btn-success,
-    .btn-primary {
+    .btn {
         padding: 12px 28px;
         font-size: 1rem;
+    }
+    
+    .file-upload label {
+        padding: 12px 24px;
+        font-size: 1rem;
+    }
+    
+    .row div {
+        min-width: 200px;
+    }
+    
+    .table-container {
+        margin: 0 -10px; /* Adjust for padding */
+        padding: 0 10px;
+    }
+    
+    table {
+        min-width: 700px; /* Ensure minimum width for readability */
     }
 }
 
 /* Small devices (576px to 767px) */
 @media (min-width: 576px) and (max-width: 767px) {
-    body {
-        font-size: 14px;
-    }
-    
     .container {
-        padding: 30px;
-        margin: 0 10px;
-    }
-    
-    form {
-        width: 95%;
-        padding: 22px;
+        padding: 25px 20px;
     }
     
     h1 {
         font-size: 1.6rem;
-        margin-bottom: 25px;
+        margin-bottom: 20px;
     }
     
     label {
@@ -378,44 +500,51 @@ table input {
         font-size: 0.9rem;
     }
     
-    .table th,
-    .table td {
-        padding: 10px;
-        font-size: 0.85rem;
+    .table th, .table td {
+        padding: 9px 12px;
+        font-size: 13px;
     }
     
-    .btn-success,
-    .btn-primary {
+    .btn {
         padding: 11px 24px;
         font-size: 0.95rem;
     }
     
-    .file-upload {
-        margin-left: 15px;
+    .file-upload label {
+        padding: 11px 22px;
+        font-size: 0.95rem;
+    }
+    
+    .row {
+        flex-direction: column;
+    }
+    
+    .row div {
+        width: 100%;
+        min-width: auto;
+        margin-bottom: 15px;
+    }
+    
+    .table-container {
+        margin: 0 -5px; /* Adjust for padding */
+        padding: 0 5px;
+    }
+    
+    table {
+        min-width: 600px; /* Reduce minimum width for small screens */
     }
 }
 
 /* Extra small devices (575px and below) */
 @media (max-width: 575px) {
-    body {
-        font-size: 13px;
-        padding: 10px;
-    }
-    
     .container {
-        padding: 20px;
-        margin: 0;
+        padding: 20px 15px;
         border-radius: 10px;
-    }
-    
-    form {
-        width: 100%;
-        padding: 18px;
     }
     
     h1 {
         font-size: 1.4rem;
-        margin-bottom: 20px;
+        margin-bottom: 18px;
     }
     
     label {
@@ -425,58 +554,55 @@ table input {
     input[type="text"],
     input[type="number"],
     input[type="file"] {
-        width: 95%;
         padding: 9px 12px;
         font-size: 0.85rem;
     }
     
-    .table th,
-    .table td {
-        padding: 8px;
-        font-size: 0.8rem;
+    .table th, .table td {
+        padding: 8px 10px;
+        font-size: 12px;
     }
     
-    .btn-success,
-    .btn-primary {
+    .btn {
         padding: 10px 20px;
         font-size: 0.9rem;
-    }
-    
-    .file-upload {
-        margin-left: 10px;
-        margin-top: 10px;
-        margin-bottom: 15px;
+        width: 100%;
+        margin: 0 auto;
+        display: block;
     }
     
     .file-upload label {
-        padding: 8px 15px;
+        padding: 10px 20px;
         font-size: 0.9rem;
+        width: 100%;
+        max-width: 250px;
+        margin: 0 auto;
     }
     
-    /* Make table scrollable horizontally */
+    .row {
+        flex-direction: column;
+    }
+    
+    .row div {
+        width: 100%;
+        min-width: auto;
+        margin-bottom: 15px;
+    }
+    
     .table-container {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
+        margin: 0 -3px; /* Adjust for padding */
+        padding: 0 3px;
     }
     
     table {
-        min-width: 500px;
+        min-width: 500px; /* Further reduce minimum width */
     }
 }
 
 /* Very small devices (400px and below) */
 @media (max-width: 400px) {
-    body {
-        font-size: 12px;
-        padding: 5px;
-    }
-    
     .container {
-        padding: 15px;
-    }
-    
-    form {
-        padding: 15px;
+        padding: 15px 10px;
     }
     
     h1 {
@@ -495,20 +621,18 @@ table input {
         font-size: 0.8rem;
     }
     
-    .table th,
-    .table td {
-        padding: 6px;
-        font-size: 0.75rem;
+    .table th, .table td {
+        padding: 6px 8px;
+        font-size: 11px;
     }
     
-    .btn-success,
-    .btn-primary {
-        padding: 8px 16px;
+    .btn {
+        padding: 9px 16px;
         font-size: 0.85rem;
     }
     
     .file-upload label {
-        padding: 7px 12px;
+        padding: 9px 18px;
         font-size: 0.85rem;
     }
     
@@ -520,7 +644,12 @@ table input {
         padding: 5px;
     }
     
+    .table-container {
+        margin: 0 -2px; /* Adjust for padding */
+        padding: 0 2px;
+    }
+    
     table {
-        min-width: 400px;
+        min-width: 400px; /* Further reduce minimum width */
     }
 }

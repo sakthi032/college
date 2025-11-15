@@ -112,7 +112,7 @@ table {
     font-size: 1.2rem;
 }
 
-table thead {
+tablead {
     background-color: #4a90e2;
     color: #fff;
 }
@@ -233,6 +233,22 @@ form .change_pass {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* Menu toggle button */
+.menu-toggle {
+    display: none;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1001;
+    background: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 10px;
+    cursor: pointer;
+    font-size: 1.2rem;
 }
 
 /* Extra large devices (1200px and up) */
@@ -384,32 +400,53 @@ form .change_pass {
 /* Small devices (576px to 767px) */
 @media (min-width: 576px) and (max-width: 767px) {
     body {
-        grid-template-rows: 60px auto;
+        grid-template-rows: 60px 1fr;
         grid-template-columns: 1fr;
         grid-template-areas:
             "header"
-            "main"
-            "aside";
+            "main";
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+    
+    aside {
+        position: fixed;
+        top: 60px;
+        left: -250px;
+        width: 250px;
+        height: calc(100vh - 60px);
+        background-color: #fff;
+        padding: 20px 0;
+        border-right: 1px solid #ddd;
+        display: flex;
+        flex-direction: column;
+        z-index: 1000;
+        transition: left 0.3s ease;
+        box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    }
+    
+    aside.active {
+        left: 0;
+    }
+    
+    aside a {
+        padding: 15px 25px;
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+        transition: 0.3s;
+    }
+    
+    aside a:hover {
+        background-color: #4a90e2;
+        color: white;
+        border-radius: 5px;
     }
     
     header {
         font-size: 18px;
-    }
-    
-    aside {
-        flex-direction: row;
-        overflow-x: auto;
-        border-right: none;
-        border-top: 1px solid #ddd;
-        padding: 15px 0;
-    }
-    
-    aside a {
-        flex: 1;
-        text-align: center;
-        padding: 12px 10px;
-        font-size: 13px;
-        white-space: nowrap;
     }
     
     section {
@@ -455,33 +492,54 @@ form .change_pass {
 /* Extra small devices (575px and below) */
 @media (max-width: 575px) {
     body {
-        grid-template-rows: 55px auto;
+        grid-template-rows: 55px 1fr;
         grid-template-columns: 1fr;
         grid-template-areas:
             "header"
-            "main"
-            "aside";
+            "main";
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+    
+    aside {
+        position: fixed;
+        top: 55px;
+        left: -250px;
+        width: 250px;
+        height: calc(100vh - 55px);
+        background-color: #fff;
+        padding: 20px 0;
+        border-right: 1px solid #ddd;
+        display: flex;
+        flex-direction: column;
+        z-index: 1000;
+        transition: left 0.3s ease;
+        box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    }
+    
+    aside.active {
+        left: 0;
+    }
+    
+    aside a {
+        padding: 15px 25px;
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+        transition: 0.3s;
+    }
+    
+    aside a:hover {
+        background-color: #4a90e2;
+        color: white;
+        border-radius: 5px;
     }
     
     header {
         font-size: 16px;
         padding: 0 15px;
-    }
-    
-    aside {
-        flex-direction: row;
-        overflow-x: auto;
-        border-right: none;
-        border-top: 1px solid #ddd;
-        padding: 10px 0;
-    }
-    
-    aside a {
-        flex: 1;
-        text-align: center;
-        padding: 10px 5px;
-        font-size: 12px;
-        white-space: nowrap;
     }
     
     section {
@@ -559,9 +617,9 @@ form .change_pass {
         padding: 0 10px;
     }
     
-    aside a {
-        padding: 8px 3px;
-        font-size: 10px;
+    aside {
+        width: 220px;
+        left: -220px;
     }
     
     section {

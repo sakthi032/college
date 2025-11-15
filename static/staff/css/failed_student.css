@@ -80,6 +80,14 @@ input[type="text"]:focus {
     text-transform: uppercase;
 }
 
+/* Table Container - Key fix for overflow */
+.table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -20px; /* Compensate for container padding */
+    padding: 0 20px;
+}
+
 /* Table Styling */
 table {
     width: 100%;
@@ -87,6 +95,7 @@ table {
     background: #fafafa;
     border-radius: 10px;
     overflow: hidden;
+    min-width: 800px; /* Ensure minimum width for readability */
 }
 
 thead {
@@ -98,6 +107,7 @@ th, td {
     padding: 12px 15px;
     text-align: center;
     font-size: 14px;
+    white-space: nowrap; /* Prevent text from wrapping */
 }
 
 tbody tr:nth-child(even) {
@@ -166,6 +176,11 @@ tbody tr:hover {
         padding: 12px 20px;
         font-size: 16px;
     }
+    
+    .table-container {
+        margin: 0 -30px; /* Adjust for larger padding */
+        padding: 0 30px;
+    }
 }
 
 /* Large devices (992px to 1199px) */
@@ -197,6 +212,11 @@ tbody tr:hover {
     .btn-search {
         padding: 11px 19px;
         font-size: 15px;
+    }
+    
+    .table-container {
+        margin: 0 -25px; /* Adjust for padding */
+        padding: 0 25px;
     }
 }
 
@@ -235,6 +255,15 @@ tbody tr:hover {
     .filters {
         gap: 12px;
         margin-bottom: 22px;
+    }
+    
+    .table-container {
+        margin: 0 -15px; /* Adjust for padding */
+        padding: 0 15px;
+    }
+    
+    table {
+        min-width: 700px; /* Reduce minimum width for medium screens */
     }
 }
 
@@ -277,6 +306,15 @@ tbody tr:hover {
     
     .table-section {
         margin-top: 25px;
+    }
+    
+    .table-container {
+        margin: 0 -10px; /* Adjust for padding */
+        padding: 0 10px;
+    }
+    
+    table {
+        min-width: 600px; /* Reduce minimum width for small screens */
     }
 }
 
@@ -326,14 +364,13 @@ tbody tr:hover {
         margin-top: 20px;
     }
     
-    /* Make table scrollable horizontally */
     .table-container {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
+        margin: 0 -5px; /* Adjust for padding */
+        padding: 0 5px;
     }
     
     table {
-        min-width: 500px;
+        min-width: 500px; /* Further reduce minimum width */
     }
     
     .empty {
@@ -378,7 +415,12 @@ tbody tr:hover {
         margin-top: 15px;
     }
     
+    .table-container {
+        margin: 0 -3px; /* Adjust for padding */
+        padding: 0 3px;
+    }
+    
     table {
-        min-width: 400px;
+        min-width: 400px; /* Further reduce minimum width */
     }
 }

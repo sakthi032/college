@@ -7,6 +7,8 @@
     <link rel="icon" type="image/x-icon" href="{% static 'staff/images/favicon.ico' %}">
     <title>Student Attainment Reporting system</title>
     <link rel="stylesheet" href="{%static 'staff/css/add_department.css'%}">
+    <!-- Add Font Awesome for the menu icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
  {% if messages %}
@@ -16,22 +18,27 @@
       </script>
     {% endfor %}
   {% endif %}
-        <header>ADMIN DASHBOARD</header>
-        <aside>
+  
+  <!-- Add menu toggle button -->
+  <button class="menu-toggle" id="menuToggle">
+    <i class="fas fa-bars"></i>
+  </button>
+  
+  <header>ADMIN DASHBOARD</header>
+  <aside id="sidebar">
     <div class="menu">
         <a href="{% url 'admin_merge_file' %}">Merge Excel File</a>
         <a href="{% url 'merged_files' %}">View Merged File</a>
         <a href="{% url 'failed_students' %}">Failed Student</a>
-
     </div>
     <div class="bottom-menu">
-    <a href="javascript:void(0);" onclick="openModal()" >Change Password</a>
-                <a href="{% url 'logout' %}"
+        <a href="javascript:void(0);" onclick="openModal()" >Change Password</a>
+        <a href="{% url 'logout' %}"
            onclick="return confirm('Are you sure you want to logout?')"
            class="logout-btn">Logout</a>
     </div>
 </aside>
-    <div class="con">
+<div class="con">
 <section>
     <form method="post" class="add">
         {%csrf_token%}
@@ -72,21 +79,22 @@
   <option value="Public Administration">Public Administration</option>
   <option value="Tamil">Tamil</option>
   <option value="Theatre and Film Studies">Theatre and Film Studies</option>
-  <option value="Women’s Studies">Women’s Studies</option>
+  <option value="Women's Studies">Women's Studies</option>
   <option value="Zoology">Zoology</option>
 </select>
         <button type="submit" class="btn">ADD NEW</button>
     </form>
 
-    <div class="tab">
-    <table border="1">
-    <tr>
-        <th>S.NO</th>
-        <th>DEPARTMENT</th>
-        <th>DATE</th>
-        <th>DELETE</th>
-    </tr>
-             <tbody>
+    <!-- Wrap the table in a container for horizontal scrolling -->
+    <div class="table-container">
+        <table border="1">
+            <tr>
+                <th>S.NO</th>
+                <th>DEPARTMENT</th>
+                <th>DATE</th>
+                <th>DELETE</th>
+            </tr>
+            <tbody>
                 {% for j in data %}
                 <tr id="{{j.id}}" >
                     <td>{{ forloop.counter }}</td>
@@ -100,10 +108,9 @@
             </tr>
                 {% endfor %}
             </tbody>
-
-</table>
-        </div>
-    </section>
+        </table>
+    </div>
+</section>
 </div>
 
 <!-- Modal Background -->
@@ -129,19 +136,24 @@
 
 <script>
     function openModal() {
-    document.getElementById("passwordModal").style.display = "block";
-}
-function closeModal() {
-    document.getElementById("passwordModal").style.display = "none";
-}
-
-// Close modal if user clicks outside content
-window.onclick = function(event) {
-    var modal = document.getElementById("passwordModal");
-    if (event.target == modal) {
-        modal.style.display = "none";
+        document.getElementById("passwordModal").style.display = "block";
     }
-}
+    function closeModal() {
+        document.getElementById("passwordModal").style.display = "none";
+    }
+
+    // Close modal if user clicks outside content
+    window.onclick = function(event) {
+        var modal = document.getElementById("passwordModal");
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+    
+    // Toggle sidebar
+    document.getElementById('menuToggle').addEventListener('click', function() {
+        document.getElementById('sidebar').classList.toggle('active');
+    });
 </script>
 </body>
 </html>

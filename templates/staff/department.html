@@ -8,6 +8,8 @@
     <link rel="icon" type="image/x-icon" href="{% static 'staff/images/favicon.ico' %}">
     <title>Student Attainment Reporting system</title>
     <link rel="stylesheet" href="{%static 'staff/css/department.css'%}">
+    <!-- Add Font Awesome for the menu icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
 <!-- Modal Background -->
@@ -31,11 +33,15 @@
   </div>
 </div>
 
+<!-- Add menu toggle button -->
+<button class="menu-toggle" id="menuToggle">
+    <i class="fas fa-bars"></i>
+</button>
 
     <header>
         <h1>{{dept}} Department</h1>
     </header>
-<aside>
+<aside id="sidebar">
     <a href="{%url 'theory_form'%}">Theory & Practical</a>
     <a href="{%url 'internal_form'%}">Internal</a>
     <a href="{% url 'college_exam'%}">College Exam</a>
@@ -134,6 +140,31 @@ window.onclick = function(event) {
     }
 }
 
+// Toggle sidebar
+document.getElementById('menuToggle').addEventListener('click', function() {
+    document.getElementById('sidebar').classList.toggle('active');
+});
+
+// Close sidebar when clicking outside on small screens
+document.addEventListener('click', function(event) {
+    const sidebar = document.getElementById('sidebar');
+    const menuToggle = document.getElementById('menuToggle');
+    
+    if (window.innerWidth <= 767 && 
+        !sidebar.contains(event.target) && 
+        !menuToggle.contains(event.target) && 
+        sidebar.classList.contains('active')) {
+        sidebar.classList.remove('active');
+    }
+});
+
+// Handle window resize
+window.addEventListener('resize', function() {
+    const sidebar = document.getElementById('sidebar');
+    if (window.innerWidth > 767) {
+        sidebar.classList.remove('active');
+    }
+});
 </script>
 </body>
 </html>

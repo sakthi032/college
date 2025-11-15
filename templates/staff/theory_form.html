@@ -91,20 +91,25 @@
         </div>
       </div>
 
-      <table class="table table-bordered mt-4" id="studentsTable">
-        <thead>
-          <tr>
-            <th>Reg. No</th>
-            <th>Name of the Student</th>
-            <th>ESE</th>
-            <th>CIA</th>
-            <th>Total</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
+      <!-- Wrap table in container for horizontal scrolling -->
+      <div class="table-container">
+        <table class="table table-bordered mt-4" id="studentsTable">
+          <thead>
+            <tr>
+              <th>Reg. No</th>
+              <th>Name of the Student</th>
+              <th>ESE</th>
+              <th>CIA</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
     </div>
-    <div>
+    
+    <!-- Wrap each table in container for horizontal scrolling -->
+    <div class="table-container">
       <table id="ALLCOs">
         <tr>
           <th colspan="7">Course Outcome Survey</th>
@@ -322,7 +327,9 @@
         </tr>
       </table>
     </div>
-    <div>
+    
+    <!-- Wrap table in container for horizontal scrolling -->
+    <div class="table-container">
       <table>
         <tr>
           <th colspan="3">Internal Examination [CIA]</th>
@@ -339,7 +346,9 @@
         </tr>
       </table>
     </div>
-    <div>
+    
+    <!-- Wrap table in container for horizontal scrolling -->
+    <div class="table-container">
       <table>
         <tr>
           <th colspan="7">Overall CO Attainment</th>
@@ -411,6 +420,7 @@
         </tr>
       </table>
     </div>
+    
     <div style="text-align: center">
       <button class="btn btn-success mt-3" onclick="saveToDatabase()">
         Create Excel

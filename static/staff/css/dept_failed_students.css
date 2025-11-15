@@ -10,6 +10,7 @@ body {
     justify-content: center;
     align-items: flex-start;
     padding: 40px 10px;
+    overflow-x: hidden; /* Prevent horizontal scroll on body */
 }
 
 /* === CONTAINER === */
@@ -22,6 +23,7 @@ body {
     padding: 40px 50px;
     animation: fadeIn 1s ease-in-out;
     backdrop-filter: blur(10px);
+    overflow: hidden; /* Prevent content from breaking out */
 }
 
 /* === HEADER === */
@@ -35,6 +37,7 @@ h2 {
     text-transform: uppercase;
     position: relative;
 }
+
 h2::after {
     content: "";
     width: 100px;
@@ -105,9 +108,19 @@ h2::after {
     text-transform: uppercase;
     position: relative;
 }
+
 .table-section h3::before {
     content: "📘";
     margin-right: 10px;
+}
+
+/* === TABLE CONTAINER - Key fix for overflow === */
+.table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -20px; /* Compensate for container padding */
+    padding: 0 20px;
+    border-radius: 15px;
 }
 
 /* === TABLE STYLE === */
@@ -117,6 +130,7 @@ table {
     overflow: hidden;
     border-radius: 15px;
     background: #fdfdfd;
+    min-width: 600px; /* Ensure minimum width for readability */
 }
 
 thead {
@@ -128,6 +142,7 @@ th, td {
     padding: 12px 15px;
     text-align: center;
     font-size: 14px;
+    white-space: nowrap; /* Prevent text from wrapping */
 }
 
 th {
@@ -135,9 +150,12 @@ th {
     font-weight: 600;
 }
 
+td {
+    border-bottom: 1px solid #eee;
+}
+
 tbody tr {
     transition: all 0.3s ease;
-    border-bottom: 1px solid #eee;
 }
 
 tbody tr:nth-child(even) {
@@ -147,7 +165,6 @@ tbody tr:nth-child(even) {
 tbody tr:hover {
     background-color: #eef1ff;
     transform: scale(1.01);
-    cursor: pointer;
 }
 
 /* === STATUS STYLING === */
@@ -225,17 +242,23 @@ tbody tr:hover {
         padding: 12px 24px;
         font-size: 16px;
     }
+    
+    .table-container {
+        margin: 0 -30px; /* Adjust for larger padding */
+        padding: 0 30px;
+    }
 }
 
 /* Large devices (992px to 1199px) */
 @media (min-width: 992px) and (max-width: 1199px) {
     .container {
-        max-width: 1100px;
-        padding: 40px 50px;
+        max-width: 1200px;
+        padding: 45px 55px;
     }
     
     h2 {
         font-size: 32px;
+        margin-bottom: 35px;
     }
     
     .table-section h3 {
@@ -257,12 +280,17 @@ tbody tr:hover {
         padding: 11px 22px;
         font-size: 15px;
     }
+    
+    .table-container {
+        margin: 0 -25px; /* Adjust for padding */
+        padding: 0 25px;
+    }
 }
 
 /* Medium devices (768px to 991px) */
 @media (min-width: 768px) and (max-width: 991px) {
     .container {
-        padding: 35px 40px;
+        padding: 40px 45px;
     }
     
     h2 {
@@ -293,6 +321,15 @@ tbody tr:hover {
     .filters {
         gap: 12px;
     }
+    
+    .table-container {
+        margin: 0 -20px; /* Adjust for padding */
+        padding: 0 20px;
+    }
+    
+    table {
+        min-width: 550px; /* Reduce minimum width for medium screens */
+    }
 }
 
 /* Small devices (576px to 767px) */
@@ -302,7 +339,8 @@ tbody tr:hover {
     }
     
     .container {
-        padding: 25px 20px;
+        padding: 30px 25px;
+        border-radius: 15px;
     }
     
     h2 {
@@ -312,10 +350,13 @@ tbody tr:hover {
     
     h2::after {
         width: 80px;
+        height: 2px;
+        bottom: -8px;
     }
     
     .table-section h3 {
         font-size: 18px;
+        margin-bottom: 10px;
     }
     
     th, td {
@@ -327,6 +368,7 @@ tbody tr:hover {
     .search-box input[type="text"] {
         padding: 9px 12px;
         font-size: 13px;
+        width: 100%;
     }
     
     .btn-search {
@@ -335,11 +377,19 @@ tbody tr:hover {
     }
     
     .filters {
+        flex-direction: column;
+        align-items: center;
         gap: 10px;
+        margin-bottom: 20px;
     }
     
-    .table-section {
-        margin-top: 25px;
+    .table-container {
+        margin: 0 -10px; /* Adjust for padding */
+        padding: 0 10px;
+    }
+    
+    table {
+        min-width: 500px; /* Reduce minimum width for small screens */
     }
 }
 
@@ -350,7 +400,7 @@ tbody tr:hover {
     }
     
     .container {
-        padding: 20px 15px;
+        padding: 25px 20px;
         border-radius: 15px;
     }
     
@@ -362,7 +412,7 @@ tbody tr:hover {
     h2::after {
         width: 70px;
         height: 2px;
-        bottom: -8px;
+        bottom: -6px;
     }
     
     .table-section h3 {
@@ -389,24 +439,17 @@ tbody tr:hover {
     }
     
     .filters {
-        flex-direction: column;
-        align-items: center;
         gap: 8px;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
     }
     
-    .table-section {
-        margin-top: 20px;
-    }
-    
-    /* Make table scrollable horizontally */
     .table-container {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
+        margin: 0 -5px; /* Adjust for padding */
+        padding: 0 5px;
     }
     
     table {
-        min-width: 500px;
+        min-width: 400px; /* Further reduce minimum width */
     }
     
     .empty {
@@ -422,7 +465,7 @@ tbody tr:hover {
     }
     
     .container {
-        padding: 15px 10px;
+        padding: 20px 15px;
     }
     
     h2 {
@@ -454,11 +497,16 @@ tbody tr:hover {
         font-size: 11px;
     }
     
-    .table-section {
-        margin-top: 15px;
+    .filters {
+        gap: 6px;
+    }
+    
+    .table-container {
+        margin: 0 -3px; /* Adjust for padding */
+        padding: 0 3px;
     }
     
     table {
-        min-width: 400px;
+        min-width: 350px; /* Further reduce minimum width */
     }
 }

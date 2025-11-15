@@ -11,6 +11,7 @@ body {
     min-height: 100vh;
     background-color: #f4f7f9;
     color: #333;
+    overflow-x: hidden; /* Prevent horizontal overflow */
 }
 
 aside {
@@ -23,12 +24,13 @@ aside {
     position: fixed;
     height: 100%;
     transition: transform 0.3s ease;
-    z-index: 999;
+    z-index: 1001; /* Increased z-index to be above header */
 }
 
 aside .menu {
     display: flex;
     flex-direction: column;
+    padding-top: 60px; /* Add padding to account for header height */
 }
 
 aside .bottom-menu {
@@ -79,6 +81,8 @@ header {
     padding: 30px 40px;
     flex: 1;
     transition: margin-left 0.3s ease;
+    max-width: calc(100% - 220px); /* Prevent overflow */
+    overflow-x: hidden; /* Prevent horizontal overflow */
 }
 
 section {
@@ -86,6 +90,8 @@ section {
     padding: 25px 30px;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+    overflow: hidden; /* Prevent content from breaking out */
 }
 
 /* Form */
@@ -94,10 +100,12 @@ section {
     gap: 15px;
     align-items: center;
     margin-bottom: 30px;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
 }
 
 .add select {
     flex: 1;
+    min-width: 200px; /* Ensure minimum width */
     padding: 10px 15px;
     border-radius: 5px;
     border: 1px solid #ccc;
@@ -119,10 +127,19 @@ section {
     cursor: pointer;
     font-size: 1rem;
     transition: 0.3s;
+    white-space: nowrap; /* Prevent text wrapping */
 }
 
 .add .btn:hover {
     background-color: #1f6391;
+}
+
+/* Table Container - Key fix for table overflow */
+.table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -15px; /* Compensate for section padding */
+    padding: 0 15px;
 }
 
 /* Table */
@@ -130,11 +147,13 @@ table {
     width: 100%;
     border-collapse: collapse;
     text-align: left;
+    min-width: 600px; /* Ensure minimum width for readability */
 }
 
 table th, table td {
     padding: 12px 15px;
     border-bottom: 1px solid #ddd;
+    white-space: nowrap; /* Prevent text wrapping */
 }
 
 table th {
@@ -164,7 +183,7 @@ table td a:hover {
 .modal {
     display: none;
     position: fixed;
-    z-index: 1000;
+    z-index: 1002; /* Ensure modal is above sidebar */
     left: 0;
     top: 0;
     width: 100%;
@@ -179,6 +198,7 @@ table td a:hover {
     padding: 25px;
     border-radius: 10px;
     width: 400px;
+    max-width: 90%; /* Ensure it doesn't overflow on small screens */
     position: relative;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     animation: fadeIn 0.4s;
@@ -265,7 +285,7 @@ form .change_pass {
     position: fixed;
     top: 15px;
     left: 15px;
-    z-index: 1001;
+    z-index: 1002; /* Ensure toggle button is above sidebar */
     background: #2980b9;
     color: white;
     border: none;
@@ -348,6 +368,7 @@ form .change_pass {
     .con {
         margin-left: 0;
         padding: 20px 15px;
+        max-width: 100%; /* Full width on mobile */
     }
     
     section {
@@ -408,8 +429,14 @@ form .change_pass {
         font-size: 0.9rem;
     }
     
+    .table-container {
+        margin: 0 -10px; /* Adjust for smaller padding */
+        padding: 0 10px;
+    }
+    
     table {
         font-size: 0.8rem;
+        min-width: 500px; /* Adjust minimum width */
     }
     
     table th, table td {

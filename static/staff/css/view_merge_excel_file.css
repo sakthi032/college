@@ -3,6 +3,7 @@ body {
     margin: 0;
     background-color: #f4f6f9;
     color: #333;
+    overflow-x: hidden; /* Prevent horizontal scroll on body */
 }
 
 header {
@@ -28,6 +29,7 @@ section {
     padding: 25px;
     border-radius: 10px;
     box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    overflow: hidden; /* Prevent content from breaking out */
 }
 
 .search {
@@ -67,10 +69,20 @@ section {
     background: #2980b9;
 }
 
+/* Table Container - Key fix for overflow */
+.table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -15px; /* Compensate for container padding */
+    padding: 0 15px;
+    border-radius: 10px;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
     font-size: 15px;
+    min-width: 600px; /* Ensure minimum width for readability */
 }
 
 thead th {
@@ -85,6 +97,7 @@ tbody td {
     padding: 12px;
     border-bottom: 1px solid #e0e0e0;
     text-align: center;
+    white-space: nowrap; /* Prevent text from wrapping */
 }
 
 tbody tr:hover {
@@ -146,6 +159,11 @@ td[colspan] {
     thead th, tbody td {
         padding: 15px;
     }
+    
+    .table-container {
+        margin: 0 -20px; /* Adjust for larger padding */
+        padding: 0 20px;
+    }
 }
 
 /* Large devices (992px to 1199px) */
@@ -183,6 +201,11 @@ td[colspan] {
     thead th, tbody td {
         padding: 13px;
     }
+    
+    .table-container {
+        margin: 0 -15px; /* Adjust for padding */
+        padding: 0 15px;
+    }
 }
 
 /* Medium devices (768px to 991px) */
@@ -219,6 +242,15 @@ td[colspan] {
     
     thead th, tbody td {
         padding: 12px;
+    }
+    
+    .table-container {
+        margin: 0 -10px; /* Adjust for padding */
+        padding: 0 10px;
+    }
+    
+    table {
+        min-width: 550px; /* Reduce minimum width for medium screens */
     }
 }
 
@@ -266,6 +298,15 @@ td[colspan] {
     thead th, tbody td {
         padding: 10px;
     }
+    
+    .table-container {
+        margin: 0 -5px; /* Adjust for padding */
+        padding: 0 5px;
+    }
+    
+    table {
+        min-width: 500px; /* Reduce minimum width for small screens */
+    }
 }
 
 /* Extra small devices (575px and below) */
@@ -308,23 +349,19 @@ td[colspan] {
     
     table {
         font-size: 12px;
-        display: block;
-        overflow-x: auto;
-        white-space: nowrap;
     }
     
     thead th, tbody td {
         padding: 8px;
     }
     
-    /* Ensure table is scrollable horizontally */
     .table-container {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
+        margin: 0 -3px; /* Adjust for padding */
+        padding: 0 3px;
     }
     
     table {
-        min-width: 500px;
+        min-width: 400px; /* Further reduce minimum width */
     }
 }
 
@@ -361,12 +398,20 @@ td[colspan] {
         font-size: 13px;
     }
     
-    thead th, tbody td {
-        padding: 6px;
+    table {
         font-size: 11px;
     }
     
+    thead th, tbody td {
+        padding: 6px;
+    }
+    
+    .table-container {
+        margin: 0 -2px; /* Adjust for padding */
+        padding: 0 2px;
+    }
+    
     table {
-        min-width: 400px;
+        min-width: 350px; /* Further reduce minimum width */
     }
 }

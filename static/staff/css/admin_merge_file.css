@@ -17,6 +17,7 @@ body {
     display: flex;
     flex-direction: column;
     animation: fadeIn 1.2s ease-in;
+    overflow-x: hidden; /* Prevent horizontal scroll on body */
 }
 
 /* ---------- Header ---------- */
@@ -55,6 +56,7 @@ section {
     max-width: 1100px;
     box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
     animation: floatUp 1.2s ease;
+    overflow: visible; /* Changed from hidden to visible */
 }
 
 /* ---------- Search Section ---------- */
@@ -128,6 +130,16 @@ section {
     transform: translateY(-2px);
 }
 
+/* ---------- Table Container - Key fix for table-only overflow ---------- */
+/* Create a dedicated container for the table */
+.table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -2rem; /* Compensate for container padding */
+    padding: 0 2rem;
+    border-radius: 10px;
+}
+
 /* ---------- Table ---------- */
 table {
     width: 100%;
@@ -135,6 +147,7 @@ table {
     overflow: hidden;
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.05);
+    min-width: 600px; /* Ensure minimum width for readability */
 }
 
 thead {
@@ -147,12 +160,14 @@ th {
     text-align: left;
     font-size: 0.95rem;
     letter-spacing: 0.5px;
+    white-space: nowrap; /* Prevent header text from wrapping */
 }
 
 td {
     padding: 0.9rem;
     color: #f1f1f1;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    white-space: nowrap; /* Prevent cell content from wrapping */
 }
 
 tbody tr:hover {
@@ -219,6 +234,11 @@ td[colspan] {
     .search select {
         width: 250px;
     }
+    
+    .table-wrapper {
+        margin: 0 -2.5rem; /* Adjust for larger padding */
+        padding: 0 2.5rem;
+    }
 }
 
 /* Large devices (992px to 1199px) */
@@ -234,6 +254,11 @@ td[colspan] {
     
     th, td {
         padding: 1rem;
+    }
+    
+    .table-wrapper {
+        margin: 0 -2.2rem; /* Adjust for padding */
+        padding: 0 2.2rem;
     }
 }
 
@@ -267,6 +292,15 @@ td[colspan] {
     th, td {
         padding: 0.8rem;
         font-size: 0.9rem;
+    }
+    
+    table {
+        min-width: 550px; /* Reduce minimum width for medium screens */
+    }
+    
+    .table-wrapper {
+        margin: 0 -1.8rem; /* Adjust for padding */
+        padding: 0 1.8rem;
     }
 }
 
@@ -310,6 +344,15 @@ td[colspan] {
     .search a.button {
         width: 100%;
         text-align: center;
+    }
+    
+    table {
+        min-width: 500px; /* Reduce minimum width for small screens */
+    }
+    
+    .table-wrapper {
+        margin: 0 -1.5rem; /* Adjust for padding */
+        padding: 0 1.5rem;
     }
 }
 
@@ -359,6 +402,7 @@ td[colspan] {
     
     table {
         font-size: 0.8rem;
+        min-width: 400px; /* Further reduce minimum width */
     }
     
     th, td {
@@ -371,10 +415,9 @@ td[colspan] {
         margin: 2px 0;
     }
     
-    /* Make table scrollable on very small screens */
-    .table-container {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
+    .table-wrapper {
+        margin: 0 -1.2rem; /* Adjust for padding */
+        padding: 0 1.2rem;
     }
 }
 
@@ -396,5 +439,14 @@ td[colspan] {
     .search a.button {
         padding: 0.6rem 0.8rem;
         font-size: 0.9rem;
+    }
+    
+    table {
+        min-width: 350px; /* Further reduce minimum width */
+    }
+    
+    .table-wrapper {
+        margin: 0 -1rem; /* Adjust for padding */
+        padding: 0 1rem;
     }
 }
