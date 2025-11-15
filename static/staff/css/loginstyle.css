@@ -137,3 +137,230 @@ h1.login {
     color: #ff00ff;
     text-shadow: 0px 0px 10px #ff00ff;
 }
+
+/* Extra large devices (1200px and up) */
+@media (min-width: 1200px) {
+    .con {
+        width: 400px;
+        padding: 30px;
+    }
+    
+    h1.login {
+        font-size: 48px;
+    }
+    
+    .input1, .input2 {
+        padding: 15px;
+        font-size: 18px;
+        margin: 15px auto;
+    }
+    
+    .input1::placeholder, .input2::placeholder {
+        font-size: 18px;
+    }
+    
+    .login-btn {
+        width: 140px;
+        padding: 15px;
+        font-size: 20px;
+    }
+    
+    .reg {
+        font-size: 22px;
+        margin-top: 25px;
+    }
+}
+
+/* Large devices (992px to 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .con {
+        width: 380px;
+        padding: 25px;
+    }
+    
+    h1.login {
+        font-size: 45px;
+    }
+    
+    .input1, .input2 {
+        padding: 14px;
+        font-size: 17px;
+        margin: 12px auto;
+    }
+    
+    .input1::placeholder, .input2::placeholder {
+        font-size: 17px;
+    }
+    
+    .login-btn {
+        width: 130px;
+        padding: 13px;
+        font-size: 19px;
+    }
+    
+    .reg {
+        font-size: 21px;
+        margin-top: 22px;
+    }
+}
+
+/* Medium devices (768px to 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .con {
+        width: 360px;
+        padding: 22px;
+    }
+    
+    h1.login {
+        font-size: 42px;
+    }
+    
+    .input1, .input2 {
+        padding: 12px;
+        font-size: 16px;
+        margin: 10px auto;
+    }
+    
+    .input1::placeholder, .input2::placeholder {
+        font-size: 16px;
+    }
+    
+    .login-btn {
+        width: 120px;
+        padding: 12px;
+        font-size: 18px;
+    }
+    
+    .reg {
+        font-size: 20px;
+        margin-top: 20px;
+    }
+}
+
+/* Small devices (576px to 767px) */
+@media (min-width: 576px) and (max-width: 767px) {
+    .con {
+        width: 340px;
+        padding: 20px;
+    }
+    
+    h1.login {
+        font-size: 38px;
+    }
+    
+    .input1, .input2 {
+        padding: 11px;
+        font-size: 15px;
+        margin: 9px auto;
+    }
+    
+    .input1::placeholder, .input2::placeholder {
+        font-size: 15px;
+    }
+    
+    .login-btn {
+        width: 110px;
+        padding: 11px;
+        font-size: 17px;
+    }
+    
+    .reg {
+        font-size: 18px;
+        margin-top: 18px;
+    }
+}
+
+/* Extra small devices (575px and below) */
+@media (max-width: 575px) {
+    .con {
+        width: 90%;
+        max-width: 320px;
+        padding: 18px;
+    }
+    
+    h1.login {
+        font-size: 34px;
+    }
+    
+    .input1, .input2 {
+        width: 90%;
+        padding: 10px;
+        font-size: 14px;
+        margin: 8px auto;
+    }
+    
+    .input1::placeholder, .input2::placeholder {
+        font-size: 14px;
+    }
+    
+    .login-btn {
+        width: 100px;
+        padding: 10px;
+        font-size: 16px;
+    }
+    
+    .reg {
+        font-size: 16px;
+        margin-top: 15px;
+    }
+    
+    /* Reduce animations on mobile for better performance */
+    .con {
+        animation: float 4s infinite ease-in-out;
+    }
+    
+    h1.login {
+        animation: neonGlow 3s infinite alternate;
+    }
+    
+    .login-btn {
+        animation: buttonGlow 4s infinite, gradientMove 6s infinite;
+    }
+}
+
+/* Very small devices (400px and below) */
+@media (max-width: 400px) {
+    .con {
+        width: 95%;
+        padding: 15px;
+    }
+    
+    h1.login {
+        font-size: 30px;
+    }
+    
+    .input1, .input2 {
+        width: 95%;
+        padding: 9px;
+        font-size: 13px;
+        margin: 7px auto;
+    }
+    
+    .input1::placeholder, .input2::placeholder {
+        font-size: 13px;
+    }
+    
+    .login-btn {
+        width: 90px;
+        padding: 9px;
+        font-size: 15px;
+    }
+    
+    .reg {
+        font-size: 14px;
+        margin-top: 12px;
+    }
+    
+    /* Further reduce animations on very small screens */
+    .con {
+        animation: float 5s infinite ease-in-out;
+    }
+    
+    h1.login {
+        animation: neonGlow 4s infinite alternate;
+    }
+    
+    .login-btn {
+        animation: buttonGlow 5s infinite, gradientMove 7s infinite;
+    }
+}

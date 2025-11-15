@@ -1,0 +1,343 @@
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: #f4f6f9;
+    color: #333;
+}
+
+/* Header */
+header {
+    background: #2c3e50;
+    color: white;
+    padding: 18px 30px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* Section container */
+section {
+    padding: 30px;
+}
+
+.con {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Buttons */
+button,
+.btn {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button {
+    background: #3498db;
+    color: white;
+}
+
+button:hover {
+    background: #2980b9;
+}
+
+.delete-btn {
+    display: inline-block;
+    padding: 6px 12px;
+    background: #e74c3c;
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.delete-btn:hover {
+    background: #c0392b;
+}
+
+/* Search form */
+.search {
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px 0;
+    gap: 10px;
+}
+
+.search input[type="text"] {
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 250px;
+    transition: 0.3s;
+}
+
+.search input[type="text"]:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.4);
+    outline: none;
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+thead th {
+    background: #34495e;
+    color: white;
+    padding: 12px;
+    text-align: center;
+    font-weight: 600;
+}
+
+tbody td {
+    padding: 12px;
+    border-bottom: 1px solid #e0e0e0;
+    text-align: center;
+}
+
+tbody tr:nth-child(even) {
+    background: #fafafa;
+}
+
+tbody tr:hover {
+    background-color: #f9fbfd;
+}
+
+td[colspan] {
+    font-style: italic;
+    color: #666;
+}
+
+/* Extra large devices (1200px and up) */
+@media (min-width: 1200px) {
+    section {
+        padding: 40px;
+    }
+    
+    .con {
+        padding: 30px;
+    }
+    
+    header h1 {
+        font-size: 28px;
+    }
+    
+    .search input[type="text"] {
+        width: 300px;
+    }
+    
+    table {
+        font-size: 16px;
+    }
+    
+    thead th, tbody td {
+        padding: 15px;
+    }
+}
+
+/* Large devices (992px to 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+    section {
+        padding: 35px;
+    }
+    
+    .con {
+        padding: 28px;
+    }
+    
+    header h1 {
+        font-size: 26px;
+    }
+    
+    .search input[type="text"] {
+        width: 280px;
+    }
+}
+
+/* Medium devices (768px to 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    section {
+        padding: 25px;
+    }
+    
+    .con {
+        padding: 22px;
+    }
+    
+    header h1 {
+        font-size: 24px;
+    }
+    
+    .search {
+        justify-content: center;
+    }
+    
+    .search input[type="text"] {
+        width: 250px;
+    }
+    
+    table {
+        font-size: 14px;
+    }
+    
+    thead th, tbody td {
+        padding: 10px;
+    }
+}
+
+/* Small devices (576px to 767px) */
+@media (min-width: 576px) and (max-width: 767px) {
+    section {
+        padding: 20px;
+    }
+    
+    .con {
+        padding: 18px;
+    }
+    
+    header {
+        padding: 15px 20px;
+    }
+    
+    header h1 {
+        font-size: 22px;
+    }
+    
+    .search {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+    }
+    
+    .search input[type="text"] {
+        width: 100%;
+    }
+    
+    button, .btn {
+        padding: 12px 18px;
+        font-size: 14px;
+    }
+    
+    .delete-btn {
+        padding: 8px 14px;
+        font-size: 12px;
+    }
+    
+    table {
+        font-size: 13px;
+    }
+    
+    thead th, tbody td {
+        padding: 8px;
+    }
+}
+
+/* Extra small devices (575px and below) */
+@media (max-width: 575px) {
+    section {
+        padding: 15px;
+    }
+    
+    .con {
+        padding: 15px;
+        border-radius: 8px;
+    }
+    
+    header {
+        padding: 12px 15px;
+    }
+    
+    header h1 {
+        font-size: 20px;
+    }
+    
+    .search {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        margin: 15px 0;
+    }
+    
+    .search input[type="text"] {
+        width: 100%;
+        padding: 12px;
+    }
+    
+    button, .btn {
+        padding: 12px 15px;
+        font-size: 14px;
+        width: 100%;
+    }
+    
+    .delete-btn {
+        padding: 6px 10px;
+        font-size: 11px;
+    }
+    
+    table {
+        font-size: 12px;
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    
+    thead th, tbody td {
+        padding: 8px 6px;
+    }
+    
+    /* Make table scrollable horizontally on small screens */
+    .table-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: 10px 0;
+    }
+    
+    /* Adjust table layout for mobile */
+    .table-container table {
+        min-width: 500px;
+    }
+}
+
+/* Very small devices (320px to 400px) */
+@media (max-width: 400px) {
+    header h1 {
+        font-size: 18px;
+    }
+    
+    .con {
+        padding: 12px;
+    }
+    
+    button, .btn {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+    
+    .delete-btn {
+        padding: 5px 8px;
+        font-size: 10px;
+    }
+    
+    thead th, tbody td {
+        padding: 6px 4px;
+        font-size: 11px;
+    }
+}
