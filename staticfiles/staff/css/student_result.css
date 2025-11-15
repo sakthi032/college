@@ -31,6 +31,7 @@ body::after {
     border-radius: 50%;
     filter: blur(80px);
     animation: float 8s infinite alternate ease-in-out;
+    z-index: -1;
 }
 
 body::after {
@@ -189,6 +190,14 @@ body::after {
     text-align: center;
 }
 
+/* 🌈 Table Container - New addition for responsiveness */
+.table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(255,255,255,0.05);
+}
+
 /* 🌈 Table Design */
 table {
     width: 100%;
@@ -196,7 +205,7 @@ table {
     border-radius: 15px;
     overflow: hidden;
     background: rgba(255,255,255,0.05);
-    box-shadow: 0 0 25px rgba(255,255,255,0.05);
+    min-width: 600px; /* Ensures table doesn't get too cramped */
 }
 
 th {
@@ -206,6 +215,7 @@ th {
     padding: 12px;
     text-transform: uppercase;
     font-size: 0.9rem;
+    white-space: nowrap;
 }
 
 td {
@@ -213,6 +223,7 @@ td {
     padding: 10px;
     border-bottom: 1px solid rgba(255,255,255,0.1);
     transition: all 0.3s ease;
+    white-space: nowrap;
 }
 
 tr:hover td {
@@ -241,6 +252,76 @@ tr:hover td {
     font-style: italic;
     font-size: 1rem;
     animation: fadeIn 2s ease-in;
+}
+
+/* Mobile Card View - New addition for very small screens */
+.mobile-card {
+    display: none;
+    background: rgba(255,255,255,0.05);
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 0 15px rgba(255,255,255,0.1);
+    transition: all 0.3s ease;
+}
+
+.mobile-card:hover {
+    background: rgba(255,255,255,0.1);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(255,255,255,0.15);
+}
+
+.mobile-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 10px;
+}
+
+.mobile-card-title {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #00f5d4;
+}
+
+.mobile-card-status {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.mobile-card-status.pass {
+    background: rgba(0,255,136,0.2);
+    color: #00ff88;
+}
+
+.mobile-card-status.fail {
+    background: rgba(255,77,77,0.2);
+    color: #ff4d4d;
+}
+
+.mobile-card-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.mobile-card-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.mobile-card-label {
+    font-size: 0.8rem;
+    color: #aaa;
+    margin-bottom: 3px;
+}
+
+.mobile-card-value {
+    font-size: 0.95rem;
 }
 
 /* Extra large devices (1200px and up) */
@@ -566,29 +647,13 @@ tr:hover td {
         margin-bottom: 8px;
     }
     
-    /* Make table scrollable horizontally */
+    /* Hide table on very small screens and show cards instead */
     .table-container {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
+        display: none;
     }
     
-    table {
-        min-width: 500px;
-    }
-    
-    th {
-        padding: 8px;
-        font-size: 0.8rem;
-    }
-    
-    td {
-        padding: 7px;
-        font-size: 0.8rem;
-    }
-    
-    .empty {
-        padding: 15px;
-        font-size: 0.9rem;
+    .mobile-card {
+        display: block;
     }
     
     /* Further reduce animations for better performance on mobile */
@@ -666,19 +731,9 @@ tr:hover td {
         margin-bottom: 6px;
     }
     
-    th {
-        padding: 6px;
-        font-size: 0.75rem;
-    }
-    
-    td {
-        padding: 6px;
-        font-size: 0.75rem;
-    }
-    
-    .empty {
-        padding: 12px;
-        font-size: 0.85rem;
+    /* Adjust mobile card layout for very small screens */
+    .mobile-card-body {
+        grid-template-columns: 1fr;
     }
     
     /* Further reduce floating background elements */
